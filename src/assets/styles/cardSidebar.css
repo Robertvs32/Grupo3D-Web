@@ -1,0 +1,19 @@
+.cardSidebar{
+    background-color: rgb(33, 33, 33);
+    border-radius: 3px;
+    width: 90%;
+    display: flex;
+    align-items: center;
+    margin: 3.5px;
+    padding: 10px 5px;
+    border: 2px solid black;
+}
+.cardSidebar:hover{
+    background-color: rgb(152, 149, 149);
+    cursor: pointer;
+    border: 2px solid white;
+}
+.imgCardSidebar{
+    width: 32px;
+    margin-right: 5px;
+}

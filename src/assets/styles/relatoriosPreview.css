@@ -1,0 +1,79 @@
+#containerRelatoriosPreview{
+    width: 100%;
+    margin-top: 10px;
+}
+.cardRelatorioPreview{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    margin-top: 10px;
+    background-color: white;
+    color: black;
+    align-items: center;
+    border-top: 6px solid rgb(122, 122, 122);
+}
+.cardRelatorioPreviewText{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    margin: 10px 0 18px 0;
+    background-color: rgb(255, 255, 255);
+    color: rgb(255, 77, 0);
+    align-items: center;
+    padding-right: 40px;
+    padding-left: 36px;
+    font-weight: bold;
+}
+.itemCard{
+    flex: 1;
+    text-align: center;
+    border-right: 1px solid black;
+    font-size: 12px;
+}
+.itemCardUlt{
+    border: none;
+    flex: 1;
+    text-align: center;
+    font-size: 12px;
+}
+.acessarBtn {
+    background-color: white;
+    border: none;
+    width: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 2px;
+    cursor: pointer;
+    padding: 5px;
+    transition: transform 0.5s ease
+}
+.acessarBtn img{
+    width: 100%;
+    height: 100%;
+    background-color: none;
+}
+.acessarBtn:hover{
+    border-radius: 4px;
+    transform: scale(1.1)
+}
+.lixeiraBtn {
+    border: none;
+    width: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 2px;
+    cursor: pointer;
+    background-color: rgb(255, 0, 0);
+    padding: 3px;
+    border-radius: 3px;
+    transition: background-color 0.3s ease;
+}
+.lixeiraBtn img{
+    width: 100%;
+    height: 100%;
+}
+.lixeiraBtn:hover{
+    background-color: rgb(134, 9, 9);
+}

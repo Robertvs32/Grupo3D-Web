@@ -1,10 +1,13 @@
 import { useState } from "react";
 import { db } from "../firebaseConfig";
-import { collection, where, query, getDocs } from "firebase/firestore";
+import { collection, where, query, getDocs, orderBy, doc, deleteDoc } from "firebase/firestore";
 
 export default function useRelatorio(){
 
     const [relatorios, setRelatorios] = useState([]);
+
+    const [relatorio, setRelatorio] = useState({});
+
     const [filtros, setFiltros] = useState({
         dataInicio: '',
         motorista: '',
@@ -20,7 +23,7 @@ export default function useRelatorio(){
     const buscaRelatorios = async () => {
         try{
 
-            const q = query(collection(db, 'relatoriostemporarios'));
+            const q = query(collection(db, 'relatoriostemporarios'), orderBy('dateTimeIni', 'desc'));
             const querySnapShot = await getDocs(q);
             const listaRelatorios = querySnapShot.docs.map(doc => ({
                 id: doc.id,
@@ -34,9 +37,21 @@ export default function useRelatorio(){
         }
     }
 
+    const excluiDocumento = async (colecao, id_documento) => {
+        try{
+            const docRef = doc(db, colecao, id_documento);
+            await deleteDoc(docRef);
+        } catch(error) {
+            alert(`Erro ao excluir relatório! - ${error}`);
+        }
+        
+
+    }
+
     return{
         relatorios,
-        buscaRelatorios
+        buscaRelatorios,
+        excluiDocumento
     }
 
 }

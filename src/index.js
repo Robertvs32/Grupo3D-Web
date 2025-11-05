@@ -4,6 +4,7 @@ import './assets/styles/index.css';
 import App from './App';
 import { createBrowserRouter, RouterProvider } from 'react-router';
 import Relatorios from './routes/Relatorios';
+import Relatorio from './routes/Relatorio';
 
 const router = createBrowserRouter([
   {
@@ -13,6 +14,10 @@ const router = createBrowserRouter([
       {
         path: "/relatorios",
         element: <Relatorios/>
+      },
+      {
+        path: "relatorio/:id",
+        element: <Relatorio/>
       }
     ]
   }

@@ -3,10 +3,11 @@ import seta from '../assets/img/seta-direita.png'
 import lixeira from '../assets/img/lixeira.png'
 import { useEffect } from 'react';
 import useRelatorio from '../hooks/useRelatorio';
+import { Link } from 'react-router';
 
 export default function RelatoriosPreview(){
 
-    const {relatorios, buscaRelatorios} = useRelatorio();
+    const {relatorios, buscaRelatorios, excluiDocumento} = useRelatorio();
 
     useEffect(() => {
         buscaRelatorios();
@@ -31,7 +32,16 @@ export default function RelatoriosPreview(){
         {relatorios.map(doc => (
             <div key={doc.id} className="cardRelatorioPreview">
 
-                <button className="lixeiraBtn">
+                <button 
+                    className="lixeiraBtn"
+                    onClick={() => {
+                        const confirmacao = window.confirm("Deseja realmente excluir?");
+                        if(confirmacao){
+                            excluiDocumento("relatoriostemporarios", doc.id)
+                            buscaRelatorios();
+                        }
+                    }}
+                >
                     <img src={lixeira} alt="" />
                 </button>
 
@@ -42,16 +52,17 @@ export default function RelatoriosPreview(){
                 <p className="itemCard">{doc.setor == 'outro' ? doc.outrosSetor : doc.setor}</p>
                 <p className="itemCard">{doc.produtorEmpresa == '' ? 'TesteContratante' : doc.produtorEmpresa}</p>
                 <p className="itemCard">{doc.produtorPessoa == '' ? 'TesteProdutor' : doc.produtorPessoa}</p>
-                <p className="itemCardUlt">{doc.placa == '' ? 'sla' : 'ABC1234'}</p>
+                <p className="itemCardUlt">{doc.placa == '' ? 'TestePlaca   ' : doc.placa}</p>
         
-                <button className="acessarBtn">
+                <Link 
+                    to={`/relatorio/${doc.id}`}
+                    className="acessarBtn"
+                >
                     <img src={seta} alt="" />
-                </button>
+                </Link>
 
             </div>
         ))}
-        
-
 
         </div>
     );

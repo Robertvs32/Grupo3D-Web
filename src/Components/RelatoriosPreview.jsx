@@ -2,12 +2,12 @@ import '../assets/styles/relatoriosPreview.css'
 import seta from '../assets/img/seta-direita.png'
 import lixeira from '../assets/img/lixeira.png'
 import { useEffect } from 'react';
-import useRelatorio from '../hooks/useRelatorio';
+import useRelatorios from '../hooks/useRelatorios';
 import { Link } from 'react-router';
 
 export default function RelatoriosPreview(){
 
-    const {relatorios, buscaRelatorios, excluiDocumento} = useRelatorio();
+    const {relatorios, buscaRelatorios, excluiDocumento} = useRelatorios();
 
     useEffect(() => {
         buscaRelatorios();
@@ -48,8 +48,8 @@ export default function RelatoriosPreview(){
                 <p className="itemCard">{doc.dateTimeIni.toDate().toLocaleDateString()}</p>
                 <p className="itemCard">{doc.motorista == '' ? 'MotoraTeste' : doc.motorista}</p>
                 <p className="itemCard">{doc.job == '' ? 'JobTeste' : doc.job}</p>
-                <p className="itemCard">{doc.atribuicao == 'outro' ? doc.outrosAtribuicao : 'Teste atribuição'}</p>
-                <p className="itemCard">{doc.setor == 'outro' ? doc.outrosSetor : doc.setor}</p>
+                <p className="itemCard">{doc.atribuicao == 'Outros' ? doc.outrosAtribuicao : doc.atribuicao}</p>
+                <p className="itemCard">{doc.setor == 'Outros' ? doc.outrosSetor : doc.setor}</p>
                 <p className="itemCard">{doc.produtorEmpresa == '' ? 'TesteContratante' : doc.produtorEmpresa}</p>
                 <p className="itemCard">{doc.produtorPessoa == '' ? 'TesteProdutor' : doc.produtorPessoa}</p>
                 <p className="itemCardUlt">{doc.placa == '' ? 'TestePlaca   ' : doc.placa}</p>

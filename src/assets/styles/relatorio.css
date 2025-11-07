@@ -1,3 +1,5 @@
 #relatorioContainer{
     margin-left: 280px;
+    min-height: 100vh;
+    background-color: red;
 }

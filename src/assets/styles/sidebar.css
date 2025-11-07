@@ -5,7 +5,7 @@
     align-items: center;
     width: 280px;
     overflow: hidden;
-    position: fixed;
+    position: absolute;
     height: 100%;
 }
 #imgSidebarContainer{

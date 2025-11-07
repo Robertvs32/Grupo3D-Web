@@ -1,57 +1,23 @@
-import { useState } from "react";
+import { doc, getDoc } from "firebase/firestore";
 import { db } from "../firebaseConfig";
-import { collection, where, query, getDocs, orderBy, doc, deleteDoc } from "firebase/firestore";
+import { useState } from "react";
 
 export default function useRelatorio(){
 
-    const [relatorios, setRelatorios] = useState([]);
+    const [relatorio, setRelatorio] = useState('')
 
-    const [relatorio, setRelatorio] = useState({});
+const buscaRelatorio = async (id) => {
+    const refDoc = doc(db, "relatoriostemporarios", id);
+    const docSnapshot = await getDoc(refDoc);
+    const relatorio = docSnapshot.data();
 
-    const [filtros, setFiltros] = useState({
-        dataInicio: '',
-        motorista: '',
-        job: '',
-        atribuicao: '',
-        setor: '',
-        contratante: '',
-        produtor: '',
-        placa: ''
+    setRelatorio(relatorio);
+    return(relatorio);
+}
 
-    });
-
-    const buscaRelatorios = async () => {
-        try{
-
-            const q = query(collection(db, 'relatoriostemporarios'), orderBy('dateTimeIni', 'desc'));
-            const querySnapShot = await getDocs(q);
-            const listaRelatorios = querySnapShot.docs.map(doc => ({
-                id: doc.id,
-                ...doc.data()
-            }));
-
-            setRelatorios(listaRelatorios);
-
-        } catch(error){
-            alert(`Erro ao buscar relatórios: ${error}`)
-        }
-    }
-
-    const excluiDocumento = async (colecao, id_documento) => {
-        try{
-            const docRef = doc(db, colecao, id_documento);
-            await deleteDoc(docRef);
-        } catch(error) {
-            alert(`Erro ao excluir relatório! - ${error}`);
-        }
-        
-
-    }
-
-    return{
-        relatorios,
-        buscaRelatorios,
-        excluiDocumento
-    }
+return{
+    buscaRelatorio,
+    relatorio
+}
 
 }

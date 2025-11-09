@@ -2,6 +2,7 @@ import Sidebar from './Components/Sidebar';
 import { Outlet } from 'react-router';
 import './assets/styles/index.css'
 import { useState } from 'react';
+import Login from './routes/Login'
 
 function App() {
 
@@ -20,14 +21,9 @@ function App() {
     } 
 
       return (
-        <>
-          <h1>Login</h1>
-          <button
-            onClick={() => setLogado(true)}
-          >
-            Logar
-          </button>
-        </> 
+        <Login
+          setter={setLogado}
+        /> 
       );
     }
 

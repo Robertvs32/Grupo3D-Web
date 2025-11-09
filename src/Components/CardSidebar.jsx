@@ -4,7 +4,7 @@ import { Link } from 'react-router';
 export default function CardSidebar({titulo, img}){
     return(
         <Link 
-            to={"/relatorios"}
+            to={"/"}
             className="cardSidebar"
         >
             <img className="imgCardSidebar" src={img} alt=""/>

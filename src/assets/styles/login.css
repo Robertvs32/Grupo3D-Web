@@ -1,0 +1,69 @@
+#containerLogin{
+    background-color: black;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: Center;
+    flex-direction: column;
+    padding-bottom: 40px;
+}
+#imgLogin{
+    width: 200px;
+    margin-bottom: 40px;
+    margin-left: 26px
+}
+#loginSubContainer{
+    background-color: rgb(16, 11, 6);
+    height: 550px;
+    width: 450px;
+    box-shadow: 0 0 10px 2px rgb(252, 147, 0);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 75px;
+}
+.inputLogin{
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+    border-bottom: 2px solid white;
+    padding-bottom: 3px;
+}
+.imgInputUser{
+    width: 18px;
+    margin-right: 5px;
+}
+.imgInputSenha{
+    width: 20px;
+    margin-right: 7px;
+}
+.input{
+    background: none;
+    padding: 5px;
+    border: none;
+    border-radius: 3px;
+    font-family: "Sora", sans-serif;
+    color: white;
+}
+.input:focus{
+    border: none;
+    outline: none;
+}
+#btnLogin{
+    background-color: rgb(255, 106, 0);
+    height: 35px;
+    width: 150px;
+    border: none;
+    border-radius: 5px;
+    margin-top: 25px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: box-shadow 0.1s linear
+}
+#btnLogin:hover{
+    box-shadow: 0 0 1px 1.5px white;
+}

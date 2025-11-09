@@ -22,7 +22,11 @@ export default function RelatoriosPreview({relatorios, buscaRelatorios, excluiDo
         </div>
 
         {relatorios.map(doc => (
-            <div key={doc.id} className="cardRelatorioPreview">
+            <div 
+                key={doc.id} 
+                className="cardRelatorioPreview" 
+                style={{borderTop: doc.verificado ? '6px solid lightgreen' : '6px solid gray'}}
+            >
 
                 <button 
                     className="lixeiraBtn"

@@ -1,4 +1,4 @@
-#containerRelPen{
+#containerRel{
     background-color: rgb(255, 128, 0);
     flex: 1;
     padding: 20px;
@@ -6,8 +6,7 @@
     margin-left: 280px;
     min-height: 100vh;
 }
-#titleRelPen{
-    /* background-color: pink; */
+#titleRel{
     border-bottom: 2px solid white;
     padding-bottom: 12px;
     text-align: center;

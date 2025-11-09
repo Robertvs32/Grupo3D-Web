@@ -10,7 +10,6 @@
     background-color: white;
     color: black;
     align-items: center;
-    border-top: 6px solid rgb(121, 121, 121);
 }
 .cardRelatorioPreviewText{
     display: flex;

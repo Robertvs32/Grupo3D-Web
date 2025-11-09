@@ -24,8 +24,12 @@ export default function useRelatorios(){
         try{
             const arrayRestricoes = []
 
+            if(filtros.dataInicio != ''){
+                arrayRestricoes.push(where('dateIni', '==', filtros.dataInicio));
+            }
+
             if(filtros.motorista != ''){
-                arrayRestricoes.push(where('motorista', '==', filtros.motorista),);
+                arrayRestricoes.push(where('motorista', '==', filtros.motorista));
             }
 
             if(filtros.job != ''){
@@ -62,7 +66,7 @@ export default function useRelatorios(){
             setRelatorios(listaRelatorios);
 
         } catch(error){
-            alert(`Erro ao buscar relatórios: ${error}`)
+            console.log(error);
         }
     }
 

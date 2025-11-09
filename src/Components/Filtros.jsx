@@ -16,6 +16,7 @@ export default function Filtros({dataInicio, motorista,  job, atribuicao, setor,
         <>
 
             <h2 id="titleFiltros">Filtros</h2>
+
             <div id="filtrosContainer">
 
                 <div class="cardFiltros">
@@ -102,6 +103,8 @@ export default function Filtros({dataInicio, motorista,  job, atribuicao, setor,
                         onChange={(e) => alteraFiltro(e, 'placa')}
                     />
                 </div>
+
+                
             </div>
 
             <button 

@@ -13,8 +13,8 @@ export default function RelatoriosPendentes(){
     },[sinalizador])
 
     return(
-        <div id="containerRelPen">
-            <h1 id="titleRelPen">Relatórios</h1>
+        <div id="containerRel">
+            <h1 id="titleRel">Relatórios</h1>
 
             <Filtros
                 filtros={filtros}

@@ -1,0 +1,23 @@
+#filtrosContainer{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 30px 0 30px 0;
+    background-color: rgb(189, 188, 188);
+    align-items: center;
+    border-radius: 6px;
+}
+#btnFiltro{
+    background-color: rgb(235, 130, 37);
+    color: white;
+    padding: 12px 3px;
+    border: 2px solid white;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.2s ease;
+    margin-left: 20px;
+}
+#btnFiltro:hover{
+    background-color: rgb(122, 74, 26);
+}

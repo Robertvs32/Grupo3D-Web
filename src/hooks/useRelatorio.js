@@ -7,7 +7,7 @@ export default function useRelatorio(){
     const [relatorio, setRelatorio] = useState('')
 
 const buscaRelatorio = async (id) => {
-    const refDoc = doc(db, "relatoriostemporarios", id);
+    const refDoc = doc(db, "relatorios", id);
     const docSnapshot = await getDoc(refDoc);
     const relatorio = docSnapshot.data();
 

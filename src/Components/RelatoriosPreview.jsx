@@ -1,24 +1,16 @@
 import '../assets/styles/relatoriosPreview.css'
 import seta from '../assets/img/seta-direita.png'
 import lixeira from '../assets/img/lixeira.png'
-import { useEffect } from 'react';
-import useRelatorios from '../hooks/useRelatorios';
 import { Link } from 'react-router';
 
-export default function RelatoriosPreview(){
-
-    const {relatorios, buscaRelatorios, excluiDocumento} = useRelatorios();
-
-    useEffect(() => {
-        buscaRelatorios();
-    },[])
+export default function RelatoriosPreview({relatorios, buscaRelatorios, excluiDocumento}){
 
     return(
         <div id="containerRelatoriosPreview">
 
         <div className="cardRelatorioPreviewText">
 
-            <p className="itemCard">Data de início</p>
+            <p className="itemCard">Data de Inicio</p>
             <p className="itemCard">Motorista</p>
             <p className="itemCard">Job</p>
             <p className="itemCard">Atribuicao</p>
@@ -37,7 +29,7 @@ export default function RelatoriosPreview(){
                     onClick={() => {
                         const confirmacao = window.confirm("Deseja realmente excluir?");
                         if(confirmacao){
-                            excluiDocumento("relatoriostemporarios", doc.id)
+                            excluiDocumento("relatorios", doc.id)
                             buscaRelatorios();
                         }
                     }}
@@ -46,13 +38,13 @@ export default function RelatoriosPreview(){
                 </button>
 
                 <p className="itemCard">{doc.dateTimeIni.toDate().toLocaleDateString()}</p>
-                <p className="itemCard">{doc.motorista == '' ? 'MotoraTeste' : doc.motorista}</p>
-                <p className="itemCard">{doc.job == '' ? 'JobTeste' : doc.job}</p>
+                <p className="itemCard">{doc.motorista == '' ? '-----' : doc.motorista}</p>
+                <p className="itemCard">{doc.job == '' ? '-----' : doc.job}</p>
                 <p className="itemCard">{doc.atribuicao == 'Outros' ? doc.outrosAtribuicao : doc.atribuicao}</p>
                 <p className="itemCard">{doc.setor == 'Outros' ? doc.outrosSetor : doc.setor}</p>
-                <p className="itemCard">{doc.produtorEmpresa == '' ? 'TesteContratante' : doc.produtorEmpresa}</p>
-                <p className="itemCard">{doc.produtorPessoa == '' ? 'TesteProdutor' : doc.produtorPessoa}</p>
-                <p className="itemCardUlt">{doc.placa == '' ? 'TestePlaca   ' : doc.placa}</p>
+                <p className="itemCard">{doc.produtorEmpresa == '' ? '-----' : doc.produtorEmpresa}</p>
+                <p className="itemCard">{doc.produtorPessoa == '' ? '-----' : doc.produtorPessoa}</p>
+                <p className="itemCardUlt">{doc.placa == '' ? '-----' : doc.placa}</p>
         
                 <Link 
                     to={`/relatorio/${doc.id}`}

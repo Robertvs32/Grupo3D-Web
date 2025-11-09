@@ -6,7 +6,7 @@ import relatorioIcon from '../assets/img/relatorios.png';
 import Placa from '../assets/img/placa.png';
 import Usuario from '../assets/img/usuario.png'
 
-export default function Sidebar(){
+export default function Sidebar({setterLogout}){
     return(
         <div className="sidebarContainer">
             <img id="imgSidebarContainer" src={Logo} alt=""/>
@@ -26,8 +26,14 @@ export default function Sidebar(){
                 img={Usuario}
             />
 
-            <button id="logoutIcon"> 
+            <button 
+                id="logoutIcon"
+                onClick={() => {
+                    setterLogout(false);
+                }}
+            > 
                 <img src={Logout}/>
+                
             </button>
             
             

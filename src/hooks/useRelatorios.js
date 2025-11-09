@@ -7,7 +7,7 @@ export default function useRelatorios(){
     const [relatorios, setRelatorios] = useState([]);
 
     const [filtros, setFiltros] = useState({
-        dataInicio: '',
+        dataInicio: new Date,
         motorista: '',
         job: '',
         atribuicao: '',
@@ -15,13 +15,43 @@ export default function useRelatorios(){
         contratante: '',
         produtor: '',
         placa: ''
-
     });
+
+    
 
     const buscaRelatorios = async () => {
         try{
+            const arrayRestricoes = []
 
-            const q = query(collection(db, 'relatoriostemporarios'), orderBy('dateTimeIni', 'desc'));
+            if(filtros.motorista != ''){
+                arrayRestricoes.push(where('motorista', '==', filtros.motorista),);
+            }
+
+            if(filtros.job != ''){
+                arrayRestricoes.push(where('job', '==', filtros.job),);
+            }
+
+            if(filtros.atribuicao != ''){
+                arrayRestricoes.push(where('atribuicao', '==', filtros.atribuicao),);
+            }
+
+            if(filtros.setor != ''){
+                arrayRestricoes.push(where('setor', '==', filtros.setor),);
+            }
+
+            if(filtros.contratante != ''){
+                arrayRestricoes.push(where('produtorEmpresa', '==', filtros.contratante),);
+            }
+
+            if(filtros.produtor != ''){
+                arrayRestricoes.push(where('produtorPessoa', '==', filtros.produtor),);
+            }
+
+            if(filtros.placa != ''){
+                arrayRestricoes.push(where('placa', '==', filtros.placa),);
+            }
+
+            const q = query(collection(db, 'relatorios'), ...arrayRestricoes);
             const querySnapShot = await getDocs(q);
             const listaRelatorios = querySnapShot.docs.map(doc => ({
                 id: doc.id,
@@ -49,7 +79,9 @@ export default function useRelatorios(){
     return{
         relatorios,
         buscaRelatorios,
-        excluiDocumento
+        excluiDocumento,
+        filtros,
+        setFiltros
     }
 
 }

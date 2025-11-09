@@ -6,11 +6,11 @@ import { useEffect } from 'react'
 
 export default function RelatoriosPendentes(){
 
-    const {relatorios, buscaRelatorios, excluiDocumento, filtros, setFiltros} = useRelatorios();
+    const {relatorios, buscaRelatorios, excluiDocumento, filtros, setFiltros, limpaFiltros, sinalizador, setSinalizador} = useRelatorios();
 
     useEffect(() => {
         buscaRelatorios();
-    },[])
+    },[sinalizador])
 
     return(
         <div id="containerRelPen">
@@ -28,6 +28,8 @@ export default function RelatoriosPendentes(){
                 placa={filtros.placa} 
                 buscaRelatorios={buscaRelatorios}
                 setFiltros={setFiltros}
+                limpaFiltros={limpaFiltros}
+                setSinalizador={setSinalizador}
             />
 
             <RelatoriosPreview

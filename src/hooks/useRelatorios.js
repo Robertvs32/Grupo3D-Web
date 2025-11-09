@@ -7,7 +7,7 @@ export default function useRelatorios(){
     const [relatorios, setRelatorios] = useState([]);
 
     const [filtros, setFiltros] = useState({
-        dataInicio: new Date,
+        dataInicio: '',
         motorista: '',
         job: '',
         atribuicao: '',
@@ -17,7 +17,8 @@ export default function useRelatorios(){
         placa: ''
     });
 
-    
+    const [sinalizador, setSinalizador] = useState(false);
+
 
     const buscaRelatorios = async () => {
         try{
@@ -65,6 +66,7 @@ export default function useRelatorios(){
         }
     }
 
+
     const excluiDocumento = async (colecao, id_documento) => {
         try{
             const docRef = doc(db, colecao, id_documento);
@@ -72,8 +74,19 @@ export default function useRelatorios(){
         } catch(error) {
             alert(`Erro ao excluir relatório! - ${error}`);
         }
-        
+    }
 
+    const limpaFiltros = () => {
+        setFiltros({
+            dataInicio: '',
+            motorista: '',
+            job: '',
+            atribuicao: '',
+            setor: '',
+            contratante: '',
+            produtor: '',
+            placa: ''
+        });
     }
 
     return{
@@ -81,7 +94,10 @@ export default function useRelatorios(){
         buscaRelatorios,
         excluiDocumento,
         filtros,
-        setFiltros
+        setFiltros,
+        limpaFiltros,
+        sinalizador,
+        setSinalizador
     }
 
 }

@@ -2,6 +2,7 @@ import '../assets/styles/relatoriosPreview.css'
 import seta from '../assets/img/seta-direita.png'
 import lixeira from '../assets/img/lixeira.png'
 import { Link } from 'react-router';
+import Editar from '../assets/img/editar.png'
 
 export default function RelatoriosPreview({relatorios, buscaRelatorios, excluiDocumento}){
 
@@ -9,7 +10,6 @@ export default function RelatoriosPreview({relatorios, buscaRelatorios, excluiDo
         <div id="containerRelatoriosPreview">
 
         <div className="cardRelatorioPreviewText">
-
             <p className="itemCard">Data de Inicio</p>
             <p className="itemCard">Motorista</p>
             <p className="itemCard">Job</p>
@@ -18,7 +18,6 @@ export default function RelatoriosPreview({relatorios, buscaRelatorios, excluiDo
             <p className="itemCard">Contratante</p>
             <p className="itemCard">Produtor</p>
             <p className="itemCardUlt">Placa</p>
-    
         </div>
 
         {relatorios.map(doc => (
@@ -27,6 +26,7 @@ export default function RelatoriosPreview({relatorios, buscaRelatorios, excluiDo
                 className="cardRelatorioPreview" 
                 style={{borderTop: doc.verificado ? '6px solid lightgreen' : '6px solid gray'}}
             >
+
 
                 <button 
                     className="lixeiraBtn"
@@ -40,6 +40,13 @@ export default function RelatoriosPreview({relatorios, buscaRelatorios, excluiDo
                 >
                     <img src={lixeira} alt="" />
                 </button>
+
+                <Link 
+                    to={`/relatorio/${doc.id}`}
+                    className="editBtn"
+                >
+                    <img src={Editar} alt="" />
+                </Link>
 
                 <p className="itemCard">{doc.dateTimeIni.toDate().toLocaleDateString()}</p>
                 <p className="itemCard">{doc.motorista == '' ? '-----' : doc.motorista}</p>

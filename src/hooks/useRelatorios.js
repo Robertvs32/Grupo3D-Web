@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { db } from "../firebaseConfig";
 import { collection, where, query, getDocs, orderBy, doc, deleteDoc } from "firebase/firestore";
 
@@ -25,11 +25,11 @@ export default function useRelatorios(){
             const arrayRestricoes = []
 
             if(filtros.dataInicio != ''){
-                arrayRestricoes.push(where('dateIni', '==', filtros.dataInicio));
+                arrayRestricoes.push(where('dateIni', '==', filtros.dataInicio),);
             }
 
             if(filtros.motorista != ''){
-                arrayRestricoes.push(where('motorista', '==', filtros.motorista));
+                arrayRestricoes.push(where('motorista', '==', filtros.motorista),);
             }
 
             if(filtros.job != ''){
@@ -55,6 +55,8 @@ export default function useRelatorios(){
             if(filtros.placa != ''){
                 arrayRestricoes.push(where('placa', '==', filtros.placa),);
             }
+
+            arrayRestricoes.push(orderBy('dateTimeIni', 'desc'))
 
             const q = query(collection(db, 'relatorios'), ...arrayRestricoes);
             const querySnapShot = await getDocs(q);

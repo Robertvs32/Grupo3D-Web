@@ -8,7 +8,6 @@
     border-radius: 4px;
     font-weight: bold;
     border: 1px solid white;
-    width: 180px;
 }
 .inputFiltro{
     width: 100%;
@@ -17,16 +16,17 @@
     background-color: none;
     padding: 7px;
     outline: none;
-    font-size: 0.92rem;
+    font-size: 0.92 rem;
 }
 .react-datepicker__input-container input{
     border: none;
-    padding: 5px;
+    padding: 7px;
     width: 100%;
 }
 .react-datepicker__input-container{
     padding: 0;
     border-radius: 4px;
 }
+
 
 

@@ -23,6 +23,7 @@ export default function Filtros({dataInicio, motorista,  job, atribuicao, setor,
                     <label>Data Inicio</label>
 
                     <DatePicker
+                        id="teste"
                         selected={dataInicio}
                         onChange={(valor) => setFiltros({...filtros, ['dataInicio']: valor})}
                         dateFormat="dd/MM/yyyy"
@@ -51,7 +52,6 @@ export default function Filtros({dataInicio, motorista,  job, atribuicao, setor,
                         onChange={(e) => alteraFiltro(e, 'job')}
                     />
                 </div>
-
                 
                 <div class="cardFiltros">
                     <label>Atribuicao</label>

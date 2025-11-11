@@ -20,7 +20,7 @@
     color: rgb(255, 77, 0);
     align-items: center;
     padding-right: 40px;
-    padding-left: 36px;
+    padding-left: 68px;
     font-weight: bold;
 }
 .itemCard{
@@ -74,5 +74,25 @@
     height: 100%;
 }
 .lixeiraBtn:hover{
-    background-color: rgb(134, 9, 9);
+    background-color: rgb(93, 1, 1);
+}
+.editBtn {
+    border: none;
+    width: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 5px;
+    cursor: pointer;
+    background-color: rgba(77, 76, 76, 0);
+    padding: 3px;
+    border-radius: 3px;
+    transition: background-color 0.3s ease;
+}
+.editBtn img{
+    width: 100%;
+    height: 100%;
+}
+.editBtn:hover{
+    background-color: rgb(222, 222, 222);
 }

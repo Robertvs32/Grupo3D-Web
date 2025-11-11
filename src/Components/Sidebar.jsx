@@ -5,6 +5,8 @@ import CardSidebar from './CardSidebar';
 import relatorioIcon from '../assets/img/relatorios.png';
 import Placa from '../assets/img/placa.png';
 import Usuario from '../assets/img/usuario.png'
+import { auth } from '../firebaseConfig';
+import { signOut } from 'firebase/auth';
 
 export default function Sidebar({setterLogout}){
     return(
@@ -30,6 +32,7 @@ export default function Sidebar({setterLogout}){
                 id="logoutIcon"
                 onClick={() => {
                     setterLogout(false);
+                    signOut(auth);
                 }}
             > 
                 <img src={Logout}/>

@@ -14,7 +14,8 @@ export default function useRelatorios(){
         setor: '',
         contratante: '',
         produtor: '',
-        placa: ''
+        placa: '',
+        verificado: ''
     });
 
     const [sinalizador, setSinalizador] = useState(false);
@@ -29,11 +30,11 @@ export default function useRelatorios(){
             }
 
             if(filtros.motorista != ''){
-                arrayRestricoes.push(where('motorista', '==', filtros.motorista),);
+                arrayRestricoes.push(where('motorista', '>=', filtros.motorista), where('motorista', '<', proximoPrefixo(filtros.motorista)));
             }
 
             if(filtros.job != ''){
-                arrayRestricoes.push(where('job', '==', filtros.job),);
+                arrayRestricoes.push(where('job', '>=', filtros.job), where('job', '<', proximoPrefixo(filtros.job)));
             }
 
             if(filtros.atribuicao != ''){
@@ -56,6 +57,10 @@ export default function useRelatorios(){
                 arrayRestricoes.push(where('placa', '==', filtros.placa),);
             }
 
+            if(filtros.verificado != ''){
+                arrayRestricoes.push(where('verificado', '==', filtros.verificado),);
+            }
+
             arrayRestricoes.push(orderBy('dateTimeIni', 'desc'))
 
             const q = query(collection(db, 'relatorios'), ...arrayRestricoes);
@@ -70,6 +75,15 @@ export default function useRelatorios(){
         } catch(error){
             console.log(error);
         }
+    }
+
+    const proximoPrefixo = (texto) => {
+        const base = texto.slice(0, -1);
+        const ultimoCaractere = texto.slice(-1);
+        const unicodeUltimo = ultimoCaractere.charCodeAt(0) + 1;
+        const stringUltimo = String.fromCharCode(unicodeUltimo);
+
+        return(base + stringUltimo);
     }
 
 
@@ -91,7 +105,8 @@ export default function useRelatorios(){
             setor: '',
             contratante: '',
             produtor: '',
-            placa: ''
+            placa: '',
+            verificado: ''
         });
     }
 

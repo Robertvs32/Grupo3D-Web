@@ -10,7 +10,7 @@ export default function RelatoriosPendentes(){
 
     useEffect(() => {
         buscaRelatorios();
-    },[sinalizador])
+    },[sinalizador, filtros])
 
     return(
         <div id="containerRel">
@@ -26,6 +26,7 @@ export default function RelatoriosPendentes(){
                 contratante={filtros.contratante} 
                 produtor={filtros.produtor}
                 placa={filtros.placa} 
+                verificado={filtros.verificado}
                 buscaRelatorios={buscaRelatorios}
                 setFiltros={setFiltros}
                 limpaFiltros={limpaFiltros}

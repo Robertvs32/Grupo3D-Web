@@ -4,7 +4,7 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { ptBR } from 'date-fns/locale';
 
-export default function Filtros({dataInicio, motorista,  job, atribuicao, setor, contratante, produtor, placa, buscaRelatorios, setFiltros, filtros, limpaFiltros, setSinalizador}){
+export default function Filtros({dataInicio, motorista,  job, atribuicao, setor, contratante, produtor, placa, verificado, buscaRelatorios, setFiltros, filtros, limpaFiltros, setSinalizador}){
 
 
     function alteraFiltro(event, campo){
@@ -102,6 +102,23 @@ export default function Filtros({dataInicio, motorista,  job, atribuicao, setor,
                         value={placa}
                         onChange={(e) => alteraFiltro(e, 'placa')}
                     />
+                </div>
+
+                <div class="cardFiltros">
+                    <label>Placa</label>
+
+                        
+                        
+
+                        <select
+                            className="inputFiltro " 
+                            value={verificado} 
+                            onChange={(e) => alteraFiltro(e, 'verificado')}
+                        >
+                            <option value="todos">Todos</option>
+                            <option value="true">Verificados</option>
+                            <option value="false">Não verificados</option>
+                        </select>
                 </div>
 
                 

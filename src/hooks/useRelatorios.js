@@ -18,9 +18,6 @@ export default function useRelatorios(){
         verificado: ''
     });
 
-    
-
-    const [sinalizador, setSinalizador] = useState(false);
 
     const buscaRelatorios = async () => {
         try{

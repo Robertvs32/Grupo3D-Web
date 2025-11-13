@@ -16,12 +16,6 @@ export default function Relatorio(){
     useEffect(() => {
         buscaRelatorio(id);
     }, []);
-
-
-    //FUNCAO PARA ALTERAR O VALOR DO STATE
-    function setStateForm(event, setter){
-        setter(event.target.value);
-    }
     
 
     return(
@@ -40,7 +34,7 @@ export default function Relatorio(){
             <InputForm
                 nome="Job"
                 getter={relatorioGetters.job}
-                setter={relatorioSetters.setMotorista}
+                setter={relatorioSetters.setJob}
             />
             
             <InputForm

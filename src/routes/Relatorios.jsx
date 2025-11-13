@@ -10,7 +10,7 @@ export default function RelatoriosPendentes(){
 
     useEffect(() => {
         buscaRelatorios();
-    },[sinalizador, filtros])
+    },[filtros])
 
     return(
         <div id="containerRel">

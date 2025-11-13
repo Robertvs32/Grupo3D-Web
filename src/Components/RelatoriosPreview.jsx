@@ -27,7 +27,6 @@ export default function RelatoriosPreview({relatorios, buscaRelatorios, excluiDo
                 style={{borderTop: doc.verificado ? '6px solid lightgreen' : '6px solid gray'}}
             >
 
-
                 <button 
                     className="lixeiraBtn"
                     onClick={() => {

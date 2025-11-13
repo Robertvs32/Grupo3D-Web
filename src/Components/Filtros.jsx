@@ -4,7 +4,7 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { ptBR } from 'date-fns/locale';
 
-export default function Filtros({dataInicio, motorista,  job, atribuicao, setor, contratante, produtor, placa, verificado, buscaRelatorios, setFiltros, filtros, limpaFiltros, setSinalizador}){
+export default function Filtros({buscaRelatorios, setFiltros, filtros, limpaFiltros}){
 
 
     function alteraFiltro(event, campo){
@@ -24,7 +24,7 @@ export default function Filtros({dataInicio, motorista,  job, atribuicao, setor,
 
                     <DatePicker
                         id="teste"
-                        selected={dataInicio}
+                        selected={filtros.dataInicio}
                         onChange={(valor) => setFiltros({...filtros, ['dataInicio']: valor})}
                         dateFormat="dd/MM/yyyy"
                         locale={ptBR}
@@ -37,7 +37,7 @@ export default function Filtros({dataInicio, motorista,  job, atribuicao, setor,
                     <input
                         className="inputFiltro"
                         type="text" 
-                        value={motorista}
+                        value={filtros.motorista}
                         onChange={(e) => alteraFiltro(e, 'motorista')}
                     />
                 </div>
@@ -48,7 +48,7 @@ export default function Filtros({dataInicio, motorista,  job, atribuicao, setor,
                     <input
                         className="inputFiltro"
                         type="text" 
-                        value={job}
+                        value={filtros.job}
                         onChange={(e) => alteraFiltro(e, 'job')}
                     />
                 </div>
@@ -58,7 +58,7 @@ export default function Filtros({dataInicio, motorista,  job, atribuicao, setor,
                     <input
                         className="inputFiltro"
                         type="text" 
-                        value={atribuicao}
+                        value={filtros.atribuicao}
                         onChange={(e) => alteraFiltro(e, 'atribuicao')}
                     />
                 </div>
@@ -69,7 +69,7 @@ export default function Filtros({dataInicio, motorista,  job, atribuicao, setor,
                     <input
                         className="inputFiltro"
                         type="text" 
-                        value={setor}
+                        value={filtros.setor}
                         onChange={(e) => alteraFiltro(e, 'setor')}
                     />
                 </div>
@@ -79,7 +79,7 @@ export default function Filtros({dataInicio, motorista,  job, atribuicao, setor,
                     <input
                         className="inputFiltro"
                         type="text" 
-                        value={contratante}
+                        value={filtros.contratante}
                         onChange={(e) => alteraFiltro(e, 'contratante')}
                     />
                 </div>
@@ -89,7 +89,7 @@ export default function Filtros({dataInicio, motorista,  job, atribuicao, setor,
                     <input 
                         className="inputFiltro"
                         type="text" 
-                        value={produtor}
+                        value={filtros.produtor}
                         onChange={(e) => alteraFiltro(e, 'produtor')}
                     />
                 </div>
@@ -99,20 +99,17 @@ export default function Filtros({dataInicio, motorista,  job, atribuicao, setor,
                     <input 
                         className="inputFiltro"
                         type="text" 
-                        value={placa}
+                        value={filtros.placa}
                         onChange={(e) => alteraFiltro(e, 'placa')}
                     />
                 </div>
 
                 <div class="cardFiltros">
-                    <label>Placa</label>
-
-                        
-                        
+                    <label>Status</label>
 
                         <select
-                            className="inputFiltro " 
-                            value={verificado} 
+                            className="inputFiltro" 
+                            value={filtros.verificado} 
                             onChange={(e) => alteraFiltro(e, 'verificado')}
                         >
                             <option value="todos">Todos</option>
@@ -134,8 +131,7 @@ export default function Filtros({dataInicio, motorista,  job, atribuicao, setor,
             <button 
                 id="btnFiltro"
                 onClick={async () => {
-                    limpaFiltros();
-                    setSinalizador((anterior) => !anterior);
+                    limpaFiltros(); 
                 }}
             >
                 Limpar Filtros

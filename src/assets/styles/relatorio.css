@@ -3,3 +3,9 @@
     min-height: 100vh;
     background-color: rgb(255, 136, 0);
 }
+#inputForms{
+    display: flex;
+    background-color: red;
+    padding: 10px;
+    flex-wrap: wrap;
+}

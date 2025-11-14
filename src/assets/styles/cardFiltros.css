@@ -4,12 +4,13 @@
     flex-direction: column;
     font-size: 0.9rem;
     align-items: center;
-    margin: 5px 10px 5px 0;
+    margin: 4px 10px 4px 0;
     border-radius: 4px;
     font-weight: bold;
     border: 1px solid white;
+    width: 190px;
 }
-.inputFiltro{
+.inputFiltro, .react-datepicker__input-container input{
     width: 100%;
     background-color: rgb(255, 255, 255);
     border: none;
@@ -18,15 +19,11 @@
     outline: none;
     font-size: 0.92 rem;
 }
-.react-datepicker__input-container input{
-    border: none;
-    padding: 7px;
+
+.react-datepicker-wrapper{
     width: 100%;
 }
-.react-datepicker__input-container{
-    padding: 0;
-    border-radius: 4px;
-}
+
 
 
 

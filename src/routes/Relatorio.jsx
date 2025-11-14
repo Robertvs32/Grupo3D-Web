@@ -4,7 +4,6 @@ import { useEffect } from 'react';
 import useRelatorio from '../hooks/useRelatorio';
 import InputForm from '../Components/formInputComponents/InputForm';
 import SelectForm from '../Components/formInputComponents/SelectForm';
-import TimePicker from 'react-time-picker';
 
 export default function Relatorio(){
 

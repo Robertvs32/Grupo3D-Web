@@ -6,7 +6,7 @@ import { useEffect } from 'react'
 
 export default function RelatoriosPendentes(){
 
-    const {relatorios, buscaRelatorios, excluiDocumento, filtros, setFiltros, limpaFiltros, sinalizador, setSinalizador} = useRelatorios();
+    const {relatorios, buscaRelatorios, excluiDocumento, filtros, setFiltros, limpaFiltros} = useRelatorios();
 
     useEffect(() => {
         buscaRelatorios();
@@ -18,19 +18,10 @@ export default function RelatoriosPendentes(){
 
             <Filtros
                 filtros={filtros}
-                dataInicio={filtros.dataInicio}
-                motorista ={filtros.motorista}
-                job={filtros.job}
-                atribuicao={filtros.atribuicao}
-                setor={filtros.setor} 
-                contratante={filtros.contratante} 
-                produtor={filtros.produtor}
-                placa={filtros.placa} 
-                verificado={filtros.verificado}
+                
                 buscaRelatorios={buscaRelatorios}
                 setFiltros={setFiltros}
                 limpaFiltros={limpaFiltros}
-                setSinalizador={setSinalizador}
             />
 
             <RelatoriosPreview

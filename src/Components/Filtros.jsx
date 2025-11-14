@@ -3,6 +3,7 @@ import '../assets/styles/cardFiltros.css';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { ptBR } from 'date-fns/locale';
+import SelectForm from './formInputComponents/SelectForm'
 
 export default function Filtros({buscaRelatorios, setFiltros, filtros, limpaFiltros}){
 
@@ -95,16 +96,6 @@ export default function Filtros({buscaRelatorios, setFiltros, filtros, limpaFilt
                 </div>
 
                 <div class="cardFiltros">
-                    <label>Placa</label>
-                    <input 
-                        className="inputFiltro"
-                        type="text" 
-                        value={filtros.placa}
-                        onChange={(e) => alteraFiltro(e, 'placa')}
-                    />
-                </div>
-
-                <div class="cardFiltros">
                     <label>Status</label>
 
                         <select
@@ -117,6 +108,10 @@ export default function Filtros({buscaRelatorios, setFiltros, filtros, limpaFilt
                             <option value="false">Não verificados</option>
                         </select>
                 </div>
+
+                <SelectForm
+                    nome="Placa"
+                />
 
                 
             </div>

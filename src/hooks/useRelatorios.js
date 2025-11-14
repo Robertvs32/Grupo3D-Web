@@ -115,8 +115,6 @@ export default function useRelatorios(){
         filtros,
         setFiltros,
         limpaFiltros,
-        sinalizador,
-        setSinalizador
     }
 
 }

@@ -1,4 +1,4 @@
-import '../../assets/styles/inputSelect.css';
+import '../../assets/styles/cardFiltros.css'
 import { useState } from 'react';
 
 export default function SelectForm({nome}){
@@ -17,10 +17,10 @@ export default function SelectForm({nome}){
     }
 
     return(
-        <div className="containerInputSelect">
+        <div class="cardFiltros">
             <label className="labelInputSelect">{nome}</label>
             <select 
-                className="selectForm"
+                className="inputFiltro"
                 onChange={(event) => changeValue(event, setState)}
                 value={state}
             >

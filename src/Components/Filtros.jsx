@@ -3,15 +3,9 @@ import '../assets/styles/cardFiltros.css';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { ptBR } from 'date-fns/locale';
-import SelectForm from './formInputComponents/SelectForm'
+import InputFiltro from './filtroComponents/InputFiltro';
 
 export default function Filtros({buscaRelatorios, setFiltros, filtros, limpaFiltros}){
-
-
-    function alteraFiltro(event, campo){
-        const value = event.target.value;
-        setFiltros({...filtros, [campo]: value});
-    }
 
     return(
         <>
@@ -20,7 +14,7 @@ export default function Filtros({buscaRelatorios, setFiltros, filtros, limpaFilt
 
             <div id="filtrosContainer">
 
-                <div class="cardFiltros">
+                <div className="cardFiltros">
                     <label>Data Inicio</label>
 
                     <DatePicker
@@ -33,7 +27,23 @@ export default function Filtros({buscaRelatorios, setFiltros, filtros, limpaFilt
                     
                 </div>
 
-                <div className="cardFiltros">
+                <InputFiltro 
+                    name="Motorista"
+                    value={filtros.motorista}
+                    campo="motorista"
+                    setFiltros={setFiltros}
+                    filtros={filtros}
+                />
+
+                <InputFiltro 
+                    name="Job"
+                    value={filtros.job}
+                    campo="job"
+                    setFiltros={setFiltros}
+                    filtros={filtros}
+                />
+
+                {/* <div className="cardFiltros">
                     <label>Motorista</label>
                     <input
                         className="inputFiltro"
@@ -111,7 +121,7 @@ export default function Filtros({buscaRelatorios, setFiltros, filtros, limpaFilt
 
                 <SelectForm
                     nome="Placa"
-                />
+                /> */}
 
                 
             </div>

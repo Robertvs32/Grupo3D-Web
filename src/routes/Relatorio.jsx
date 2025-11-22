@@ -19,62 +19,7 @@ export default function Relatorio(){
 
     return(
         <div id="relatorioContainer">
-            <h1 style={{textAlign: 'center'}}>Relatório</h1>
-
-
-        <div id="inputForms">
-
-            <InputForm
-                nome="Motorista"
-                getter={relatorioGetters.motorista}
-                setter={relatorioSetters.setMotorista}
-            />
-
-            <InputForm
-                nome="Job"
-                getter={relatorioGetters.job}
-                setter={relatorioSetters.setJob}
-            />
-            
-            <InputForm
-                nome="KmInicial"
-                getter={relatorioGetters.motorista}
-                setter={relatorioSetters.setMotorista}
-            />
-
-            <InputForm
-                nome="KmFinal"
-                getter={relatorioGetters.motorista}
-                setter={relatorioSetters.setMotorista}
-            />
-
-            <InputForm
-                nome="Produtor(a)"
-                getter={relatorioGetters.produtorPessoa}
-                setter={relatorioSetters.setMotorista}
-            />
-
-            <InputForm
-                nome="Contratante"
-                getter={relatorioGetters.produtorEmpresa}
-                setter={relatorioSetters.setMotorista}
-            />
-
-            <SelectForm
-                nome="Placa"
-            />
-            
-            <input 
-                type="time" 
-                style={{height: '20px', width: '200px'}} 
-                value="15:50"
-            />
-            
-        </div>
-            
-
-            
-
+            <h1 style={{textAlign: 'center', borderBottom: '2px solid white'}}>Relatório</h1>
         </div>
     )
 }

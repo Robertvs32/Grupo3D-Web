@@ -4,8 +4,6 @@ import { useState } from "react";
 
 export default function useRelatorio(){
 
-    const [relatorio, setRelatorio] = useState('');
-
     const [motorista, setMotorista] = useState('');
     const [dateTimeIni, setDateTimeIni] = useState(new Date);
     const [dateTimeFim, setDateTimeFim] = useState(new Date);
@@ -19,11 +17,11 @@ export default function useRelatorio(){
     const [kmFim, setKmFim] = useState('');
     const [zonaAzul, setZonaAzul] = useState('');
     const [qtdZonaAzul, setQtdZonaAzul] = useState('');
-    const [valorZonaAzul, setValorZonaAzul] = useState(0);
+    const [valorZonaAzul, setValorZonaAzul] = useState('');
     const [inversor, setInversor] = useState('');
     const [pedagio, setPedagio] = useState('');
     const [parceiro, setParceiro] = useState('');
-    const [valorPedagioParceiro, setValorPedagioParceiro] = useState(0);
+    const [valorPedagioParceiro, setValorPedagioParceiro] = useState('');
     const [placa, setPlaca] = useState('');
     const [atribuicao, setAtribuicao] = useState('');
     const [setor, setSetor] = useState('');
@@ -93,23 +91,23 @@ export default function useRelatorio(){
         const docSnapshot = await getDoc(refDoc);
         const relatorio = docSnapshot.data();
 
-        setRelatorio(relatorio);
         recuperaValues(relatorio)
     }
 
     const recuperaValues = (object) => {
-        setMotorista(object.motorista ? object.motorista : 'Vazio');
+        setMotorista(object.motorista);
         setObs(object.obs);
         setEstacionamento(object.estacionamento);
-        setJob(object.job ? object.job : 'slaqueporra');
+        setJob(object.job);
         setProdutorEmpresa(object.produtorEmpresa);
         setProdutorPessoa(object.produtorPessoa);
+        setAlimentacao(object.alimentacao);
+        setArrayAlimentacao(object.arrayAlimentacao ?? [{id: 1, refeicao: '', valor: ''}])
     }
 
 
     return{
         buscaRelatorio,
-        relatorio,
         relatorioGetters,
         relatorioSetters
     }

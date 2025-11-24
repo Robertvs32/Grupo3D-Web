@@ -40,7 +40,7 @@ export default function useRelatorios(){
             }
 
             if(filtros.setor != ''){
-                arrayRestricoes.push(where('setor', '==', filtros.setor),);
+                arrayRestricoes.push(where('setor', '>=', filtros.setor), where('setor', '<', proximoPrefixo(filtros.setor)));
             }
 
             if(filtros.contratante != ''){
@@ -55,8 +55,9 @@ export default function useRelatorios(){
                 arrayRestricoes.push(where('placa', '==', filtros.placa),);
             }
 
-            if(filtros.verificado != ''){
-                arrayRestricoes.push(where('verificado', '==', filtros.verificado),);
+            if(filtros.verificado != ''){   
+                const bolVerificado =  filtros.verificado == "true" ? true : false;
+                arrayRestricoes.push(where('verificado', '==', bolVerificado,));
             }
 
             arrayRestricoes.push(orderBy('dateTimeIni', 'desc'))

@@ -1,8 +1,8 @@
-import '../assets/styles/login.css';
-import Logo from '../assets/img/logo.png';
-import User from '../assets/img/user.png';
-import Senha from '../assets/img/senha.png';
-import useLogin from '../hooks/useLogin';
+import './login.css';
+import Logo from '../../assets/img/logo.png';
+import User from '../../assets/img/user.png';
+import Senha from '../../assets/img/senha.png';
+import useLogin from '../../hooks/useLogin';
 
 export default function Login(){
 

@@ -1,4 +1,4 @@
-import '../assets/styles/cardSidebar.css'
+import './cardSidebar.css'
 import { Link } from 'react-router';
 
 export default function CardSidebar({titulo, img}){

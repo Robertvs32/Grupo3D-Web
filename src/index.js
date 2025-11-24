@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './assets/styles/index.css';
+import './index.css';
 import App from './App';
 import { createBrowserRouter, RouterProvider } from 'react-router';
-import Relatorios from './routes/Relatorios';
-import Relatorio from './routes/Relatorio';
+import Relatorios from './routes/Relatorios/Relatorios';
+import Relatorio from './routes/Relatorio/Relatorio';
 
 const router = createBrowserRouter([
   {

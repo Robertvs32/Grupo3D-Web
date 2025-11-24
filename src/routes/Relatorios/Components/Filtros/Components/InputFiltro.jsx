@@ -1,5 +1,3 @@
-import useRelatorios from '../../hooks/useRelatorios';
-
 export default function InputFiltro({name, value, campo, setFiltros, filtros}){
 
     function alteraFiltro(event, campo){

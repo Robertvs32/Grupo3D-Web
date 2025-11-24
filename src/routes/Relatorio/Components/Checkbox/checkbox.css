@@ -1,0 +1,52 @@
+.checkBoxContainer{
+    display: flex;
+    flex-direction: column;
+    max-width: 228px;
+    border: 3px solid white;
+    border-radius: 5px;
+    margin: 7px;
+    flex: 1;
+    max-height: 200px;
+    min-height: 67px;
+}
+.labelCheckBox{
+    background-color: rgb(255, 94, 0);
+    padding: 4px;
+    color: white;
+    font-size: 13px;
+    font-weight: bold;
+}
+.containerBtns{
+    background-color: white;
+    height: 100%;
+    padding: 3px;
+}
+.btnCheckBox{
+    height: 100%;
+    width: 20%;
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    border-radius: 3px;
+    margin: 2px 3px 4px 0;
+    font-size: 12px;
+}
+.btnCheckBoxTrue{
+    height: 100%;
+    width: 20%;
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    border-radius: 3px;
+    margin: 2px 3px 4px 0;
+    font-size: 12px;
+    background-color: rgb(0, 255, 26);
+}
+.btnCheckBoxFalse{
+    height: 100%;
+    width: 20%;
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    border-radius: 3px;
+    margin: 2px 3px 4px 0;
+    font-size: 12px;
+    background-color: red;
+}

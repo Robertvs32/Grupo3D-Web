@@ -1,7 +1,7 @@
-import '../assets/styles/relatorios.css'
-import RelatoriosPreview from '../Components/RelatoriosPreview';
-import Filtros from '../Components/Filtros';
-import useRelatorios from '../hooks/useRelatorios';
+import './relatorios.css'
+import RelatoriosPreview from './Components/RelatorioPreview/RelatoriosPreview';
+import Filtros from './Components/Filtros/Filtros'
+import useRelatorios from '../../hooks/useRelatorios';
 import { useEffect } from 'react'
 
 export default function RelatoriosPendentes(){

@@ -1,8 +1,8 @@
-import '../assets/styles/relatoriosPreview.css'
-import seta from '../assets/img/seta-direita.png'
-import lixeira from '../assets/img/lixeira.png'
+import './relatoriosPreview.css'
+import seta from '../../../../assets/img/seta-direita.png'
+import lixeira from '../../../../assets/img/lixeira.png'
 import { Link } from 'react-router';
-import Editar from '../assets/img/editar.png'
+import Editar from '../../../../assets/img/editar.png'
 
 export default function RelatoriosPreview({relatorios, buscaRelatorios, excluiDocumento}){
 
@@ -24,7 +24,7 @@ export default function RelatoriosPreview({relatorios, buscaRelatorios, excluiDo
             <div 
                 key={doc.id} 
                 className="cardRelatorioPreview" 
-                style={{borderTop: doc.verificado ? '6px solid lightgreen' : '6px solid gray'}}
+                style={{borderTop: doc.verificado ? '7px solid lightgreen' : '7px solid gray'}}
             >
 
                 <button 

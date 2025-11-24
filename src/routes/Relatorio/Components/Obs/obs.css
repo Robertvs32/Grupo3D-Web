@@ -1,0 +1,27 @@
+.containerObsRelatorio{
+    display: flex;
+    flex-direction: column;
+    min-width: 400px;
+    max-width: 600  px;
+    border: 3px solid white;
+    border-radius: 5px;
+    margin: 7px;
+    flex: 1;
+    max-height: 200px;
+}
+
+.labelObsRelatorio{
+    background-color: rgb(255, 94, 0);
+    padding: 4px;
+    color: white;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.textareaObsRelatorio{
+    padding: 4px;
+    font-size: 15px;
+    outline: none;
+    resize: none;
+    height:50px;
+}

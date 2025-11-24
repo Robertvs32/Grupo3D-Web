@@ -1,8 +1,8 @@
-import Sidebar from './Components/Sidebar';
+import Sidebar from './Components/Sidebar/Sidebar';
 import { Outlet } from 'react-router';
-import './assets/styles/index.css'
+import './index.css'
 import { useState } from 'react';
-import Login from './routes/Login'
+import Login from './routes/Login/Login'
 import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from './firebaseConfig';
 import { useEffect } from 'react';

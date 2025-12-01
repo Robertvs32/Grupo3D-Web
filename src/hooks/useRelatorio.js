@@ -1,4 +1,4 @@
-import { doc, getDoc } from "firebase/firestore";
+import { doc, getDoc, setDoc } from "firebase/firestore";
 import { db } from "../firebaseConfig";
 import { useState } from "react";
 
@@ -28,7 +28,9 @@ export default function useRelatorio(){
     const [outrosAtribuicao, setOutrosAtribuicao] = useState('');
     const [outrosSetor, setOutrosSetor] = useState('');
     const [alimentacao, setAlimentacao] = useState('');
-    const [arrayAlimentacao, setArrayAlimentacao] = useState('');
+    const [arrayAlimentacao, setArrayAlimentacao] = useState([]);
+    const [verificado, setVerificado] = useState('');
+    const [pagamento, setPagamento] = useState('');
 
     const relatorioGetters = {
         motorista,
@@ -55,7 +57,9 @@ export default function useRelatorio(){
         outrosAtribuicao,
         outrosSetor,
         alimentacao,
-        arrayAlimentacao
+        arrayAlimentacao,
+        verificado,
+        pagamento
     }
 
     const relatorioSetters = {
@@ -83,7 +87,9 @@ export default function useRelatorio(){
         setOutrosAtribuicao,
         setOutrosSetor,
         setAlimentacao,
-        setArrayAlimentacao
+        setArrayAlimentacao,
+        setVerificado,
+        setPagamento
     }
 
     const buscaRelatorio = async (id) => {
@@ -94,20 +100,109 @@ export default function useRelatorio(){
         recuperaValues(relatorio)
     }
 
+    const buscaPlacas = async () => {
+        const docRef = doc(db, "placas e valores", "WKoQg1pcB401ZWmAk2Pz");
+        const docSnapShot = await getDoc(docRef);
+        const placas = docSnapShot.data();
+
+        return placas.placas;
+    }
+
+    const buscaAtribuicoes = async () => {
+        const docRef = doc(db, "atribuicoes", "IgxVe1QYFBXPgbZxxh89");
+        const docSnapShot = await getDoc(docRef);
+        const atribuicoes = docSnapShot.data();
+
+        return atribuicoes.atribuicoes;
+    }
+
+    const buscaSetor = async () => {
+        const docRef = doc(db, "setor", "setor");
+        const docSnapShot = await getDoc(docRef);
+        const setor = docSnapShot.data();
+
+        return setor.setor;
+    }
+
+    const valores = {
+        motorista,
+        dateTimeIni,
+        dateTimeFim,
+        obs,
+        estacionamento,
+        valorEstacionamento,
+        job,
+        produtorEmpresa,
+        produtorPessoa,
+        kmIni,
+        kmFim,
+        zonaAzul,
+        qtdZonaAzul,
+        valorZonaAzul,
+        inversor,
+        pedagio,
+        parceiro,
+        valorPedagioParceiro,
+        placa,
+        atribuicao,
+        setor,
+        outrosAtribuicao,
+        outrosSetor,
+        alimentacao,
+        ...(alimentacao === true && {arrayAlimentacao: arrayAlimentacao}),
+        ...(verificado === "true") ? {verificado: true} : {verificado: false},
+        pagamento
+    }
+
+
+    async function atualizaDados(id){
+
+        try{
+            const refDoc = doc(db, "relatorios", id);
+            await setDoc(refDoc, valores);
+            alert("Atualizado com sucesso!");
+        }catch(error){
+            alert(error);
+        }
+        
+    }
+
     const recuperaValues = (object) => {
         setMotorista(object.motorista);
         setObs(object.obs);
         setEstacionamento(object.estacionamento);
+        setValorEstacionamento(object.valorEstacionamento);
         setJob(object.job);
         setProdutorEmpresa(object.produtorEmpresa);
         setProdutorPessoa(object.produtorPessoa);
         setAlimentacao(object.alimentacao);
-        setArrayAlimentacao(object.arrayAlimentacao ?? [{id: 1, refeicao: '', valor: ''}])
+        setArrayAlimentacao(object.arrayAlimentacao ?? [{id: 1, refeicao: '', valor: ''}]);
+        setVerificado(object.verificado);
+        setPagamento(object.pagamento);
+        setKmIni(object.kmIni);
+        setKmFim(object.kmFim);
+        setOutrosAtribuicao(object.outrosAtribuicao);
+        setOutrosSetor(object.outrosSetor);
+        setParceiro(object.parceiro);
+        setPedagio(object.pedagio);
+        setValorPedagioParceiro(object.valorPedagioParceiro);
+        setPlaca(object.placa);
+        setSetor(object.setor);
+        setQtdZonaAzul(object.qtdZonaAzul);
+        setValorZonaAzul(object.valorZonaAzul);
+        setZonaAzul(object.zonaAzul);
+        setInversor(object.inversor);
+        setDateTimeIni(object.dateTimeIni);
+        setDateTimeFim(object.dateTimeFim);
+        setAtribuicao(object.atribuicao);
     }
-
 
     return{
         buscaRelatorio,
+        buscaPlacas,
+        buscaAtribuicoes,
+        buscaSetor,
+        atualizaDados,
         relatorioGetters,
         relatorioSetters
     }

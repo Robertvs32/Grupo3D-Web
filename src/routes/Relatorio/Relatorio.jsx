@@ -4,12 +4,18 @@ import { useEffect } from 'react';
 import useRelatorio from '../../hooks/useRelatorio';
 import InputRelatorio from './Components/InputRelatorio/InputRelatorio';
 import Checkbox from './Components/Checkbox/Checkbox';
+import Atribuicao from './Components/Select/Atribuicao/Atribuicao';
+import Placa from './Components/Select/Placa/Placa';
+import Setor from './Components/Select/Setor/Setor';
+import Alimentacao from './Components/Alimentacao/Alimentacao';
+import Obs from './Components/Obs/Obs';
+import Verificado from './Components/Select/Verificado/Verificado';
+import Pago from './Components/Select/Pago/Pago';
 
 export default function Relatorio(){
 
-    
     const { id } = useParams();
-    const { buscaRelatorio, relatorioGetters, relatorioSetters } = useRelatorio(); //
+    const { buscaRelatorio, relatorioGetters, relatorioSetters, atualizaDados } = useRelatorio(); //
 
     useEffect(() => {
         buscaRelatorio(id);
@@ -18,7 +24,7 @@ export default function Relatorio(){
 
     return(
         <div id="relatorioContainer">
-            <h1 style={{textAlign: 'center', borderBottom: '2px solid white'}}>Relatório</h1>
+            <h1 id="titleRelatorio">Editar relatório</h1>
 
             <div id="formularioContainer">
 
@@ -30,32 +36,38 @@ export default function Relatorio(){
 
                 <InputRelatorio
                     name="Job"
-                    value={relatorioGetters.motorista}
-                    setter={relatorioSetters.setMotorista}
+                    value={relatorioGetters.job}
+                    setter={relatorioSetters.setJob}
                 />
 
                 <InputRelatorio
                     name="Km Inicial"
-                    value={relatorioGetters.motorista}
-                    setter={relatorioSetters.setMotorista}
+                    value={relatorioGetters.kmIni}
+                    setter={relatorioSetters.setKmIni}
                 />
 
                 <InputRelatorio
                     name="Km Final"
-                    value={relatorioGetters.motorista}
-                    setter={relatorioSetters.setMotorista}
+                    value={relatorioGetters.kmFim}
+                    setter={relatorioSetters.setKmFim}
                 />
 
                 <InputRelatorio
                     name="Contratante"
-                    value={relatorioGetters.motorista}
-                    setter={relatorioSetters.setMotorista}
+                    value={relatorioGetters.produtorEmpresa}
+                    setter={relatorioSetters.setProdutorEmpresa}
                 />
 
                 <InputRelatorio
                     name="Produtor(a)"
-                    value={relatorioGetters.motorista}
-                    setter={relatorioSetters.setMotorista}
+                    value={relatorioGetters.produtorPessoa}
+                    setter={relatorioSetters.setProdutorPessoa}
+                />
+
+                <Checkbox
+                    name="Inversor"
+                    state={relatorioGetters.inversor}
+                    setter={relatorioSetters.setInversor}
                 />
 
                 <Checkbox
@@ -65,14 +77,131 @@ export default function Relatorio(){
                 />
 
                 <Checkbox
-                    name="Inversor"
-                    state={relatorioGetters.inversor}
-                    setter={relatorioSetters.setInversor}
+                    name="Pedágio"
+                    state={relatorioGetters.pedagio}
+                    setter={relatorioSetters.setPedagio}
                 />
 
-            </div>
+                {(relatorioGetters.parceiro && relatorioGetters.pedagio) && (
+                    <InputRelatorio
+                        name="Valor pedágio parceiro"
+                        value={relatorioGetters.valorPedagioParceiro}
+                        setter={relatorioSetters.setValorPedagioParceiro}
+                    />
+                )}
+
+
+                <Checkbox
+                    name="ZonaAzul"
+                    state={relatorioGetters.zonaAzul}
+                    setter={relatorioSetters.setZonaAzul}
+                />
+
+                {relatorioGetters.zonaAzul && (
+                    <>
+                        <InputRelatorio
+                            name="Qtd Zona azul"
+                            value={relatorioGetters.qtdZonaAzul}
+                            setter={relatorioSetters.setQtdZonaAzul}
+                        />
+
+                        <InputRelatorio
+                            name="Valor Zona Azul"
+                            value={relatorioGetters.valorZonaAzul}
+                            setter={relatorioSetters.setValorZonaAzul}
+                        />
+                    </>
+                )}
+
+                <Checkbox
+                    name="Estacionamento"
+                    state={relatorioGetters.estacionamento}
+                    setter={relatorioSetters.setEstacionamento}
+                />
+
+                {relatorioGetters.estacionamento && (
+                    <InputRelatorio
+                        name="Valor Estacionamento"
+                        value={relatorioGetters.valorEstacionamento}
+                        setter={relatorioSetters.setValorEstacionamento}
+                    />
+                )}
+
+                <Placa
+                    state={relatorioGetters.placa}
+                    setter={relatorioSetters.setPlaca}
+                />
+
+                <Atribuicao
+                    state={relatorioGetters.atribuicao}
+                    setter={relatorioSetters.setAtribuicao}
+                />
+
+                {(relatorioGetters.atribuicao == 'Outros') && (
+                    <InputRelatorio
+                        name="Atribuicao - Outros"
+                        value={relatorioGetters.outrosAtribuicao}
+                        setter={relatorioSetters.setOutrosAtribuicao}
+                    />
+                )}
+
+                <Setor
+                    state={relatorioGetters.setor}
+                    setter={relatorioSetters.setSetor}
+                />
+
+                {(relatorioGetters.setor == 'Outros') && (
+                    <InputRelatorio
+                        name="Setor - Outros"
+                        value={relatorioGetters.outrosSetor}
+                        setter={relatorioSetters.setOutrosSetor}
+                    />
+                )}
+
+                <Checkbox
+                    name="Alimentação"
+                    state={relatorioGetters.alimentacao}
+                    setter={relatorioSetters.setAlimentacao}
+                />
+
+                <Verificado
+                    state={relatorioGetters.verificado}
+                    setter={relatorioSetters.setVerificado}
+                />
+
+                <Pago
+                    state={relatorioGetters.pagamento}
+                    setter={relatorioSetters.setPagamento}
+                />
 
             
+            </div>
+
+            {relatorioGetters.alimentacao && (
+                <Alimentacao
+                    array={relatorioGetters.arrayAlimentacao}
+                    setter={relatorioSetters.setArrayAlimentacao}    
+                />
+            )}
+
+            <Obs
+                state={relatorioGetters.obs}
+                setter={relatorioSetters.setObs}
+            />
+
+            <button
+            id="btnEnviar"
+                onClick={async () => {
+                    const confirmar = window.confirm("Deseja atualizar?")
+                    if(confirmar){
+                        await atualizaDados(id);
+                    }
+                }  
+            }
+            >
+                Atualizar dados
+            </button>
+ 
         </div>
     )
 }

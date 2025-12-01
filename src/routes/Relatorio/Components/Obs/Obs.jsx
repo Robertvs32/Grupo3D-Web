@@ -1,6 +1,6 @@
 import './obs.css'
 
-export default function ObsInputRelatorio({name, value, setter}){
+export default function ObsInputRelatorio({value, setter}){
 
     function changeValue(e, setter){
         const value = e.target.value;
@@ -9,7 +9,7 @@ export default function ObsInputRelatorio({name, value, setter}){
 
     return(
         <div className="containerObsRelatorio">
-            <label className="labelObsRelatorio">{name}</label>
+            <label className="labelObsRelatorio">Observações</label>
             <textarea
                 className="textareaObsRelatorio"
                 type="text" 

@@ -16,11 +16,13 @@ export default function Sidebar({setterLogout}){
             <CardSidebar
                 titulo="Relatórios"
                 img={relatorioIcon}
+                path="/"
             />
 
             <CardSidebar
                 titulo="Placas e valores"
                 img={Placa}
+                path="usuarios"
             />
 
             <CardSidebar

@@ -61,7 +61,7 @@ export default function Alimentacao({array, setter}){
                                 class="removerRef"
                                 onClick={() => removerRef(array, setter, refeicao.id)}
                             >
-                            <img className="btnRemoveAlimentacao" src={lixeira} />
+                            <img className="imgRemoverRef" src={lixeira} />
                             </button>
                             <input 
                                 className="inputRefeicao"

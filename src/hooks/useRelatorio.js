@@ -151,12 +151,12 @@ export default function useRelatorio(){
         alimentacao,
         ...(alimentacao === true && {arrayAlimentacao: arrayAlimentacao}),
         ...(verificado === "true") ? {verificado: true} : {verificado: false},
-        pagamento
+        pagamento,
+        horasTrabalhadas: (dateTimeFim - dateTimeIni) / 3600000
     }
 
 
     async function atualizaDados(id){
-
         try{
             const refDoc = doc(db, "relatorios", id);
             await setDoc(refDoc, valores);
@@ -164,7 +164,21 @@ export default function useRelatorio(){
         }catch(error){
             alert(error);
         }
-        
+    }
+
+    async function atualizaPlacas(array){
+
+        const placas = {
+            placas: array
+        }
+
+        try{
+            const refDoc = doc(db, "placas e valores", "WKoQg1pcB401ZWmAk2Pz");
+            await setDoc(refDoc, placas);
+            alert("Atualizado com sucesso!");
+        }catch(error){
+            alert(error);
+        }
     }
 
     const recuperaValues = (object) => {
@@ -192,8 +206,8 @@ export default function useRelatorio(){
         setValorZonaAzul(object.valorZonaAzul);
         setZonaAzul(object.zonaAzul);
         setInversor(object.inversor);
-        setDateTimeIni(object.dateTimeIni);
-        setDateTimeFim(object.dateTimeFim);
+        setDateTimeIni(object.dateTimeIni.toDate());
+        setDateTimeFim(object.dateTimeFim.toDate());
         setAtribuicao(object.atribuicao);
     }
 
@@ -203,6 +217,7 @@ export default function useRelatorio(){
         buscaAtribuicoes,
         buscaSetor,
         atualizaDados,
+        atualizaPlacas,
         relatorioGetters,
         relatorioSetters
     }

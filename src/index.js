@@ -5,6 +5,7 @@ import App from './App';
 import { createBrowserRouter, RouterProvider } from 'react-router';
 import Relatorios from './routes/Relatorios/Relatorios';
 import Relatorio from './routes/Relatorio/Relatorio';
+import Placas from './routes/Placas/Placas';
 
 const router = createBrowserRouter([
   {
@@ -18,6 +19,10 @@ const router = createBrowserRouter([
       {
         path: "relatorio/:id",
         element: <Relatorio/>
+      },
+      {
+        path: "usuarios",
+        element: <Placas/>
       }
     ]
   }

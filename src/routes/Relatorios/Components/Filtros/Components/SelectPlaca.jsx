@@ -1,23 +1,23 @@
-export default function SelectFiltro({name, campo, value, setFiltros, filtros, options}){
+export default function SelectPlaca({value, setFiltros, filtros, options}){
 
-    function alteraFiltro(event, campo){
+    function alteraFiltro(event){
         const value = event.target.value;
-        setFiltros({...filtros, [campo]: value});
+        setFiltros({...filtros, placa: value});
     }
 
     return(
         <div className="cardFiltros">
-            <label>{name}</label>
+            <label>Placa</label>
 
                 <select
                     className="inputFiltro" 
                     value={value} 
-                    onChange={(e) => alteraFiltro(e, campo)}
+                    onChange={(e) => alteraFiltro(e)}
                 >
                     <option value="">Geral</option>
 
                     {options.map(option => (
-                        <option value={option.value}>{option.nome}</option>
+                        <option value={option.placa}>{option.placa}</option>
                     ))}
                     
                 </select>

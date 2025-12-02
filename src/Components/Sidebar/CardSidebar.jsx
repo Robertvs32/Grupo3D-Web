@@ -1,10 +1,10 @@
 import './cardSidebar.css'
 import { Link } from 'react-router';
 
-export default function CardSidebar({titulo, img}){
+export default function CardSidebar({titulo, img, path}){
     return(
         <Link 
-            to={"/"}
+            to={path}
             className="cardSidebar"
         >
             <img className="imgCardSidebar" src={img} alt=""/>

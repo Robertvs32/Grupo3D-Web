@@ -1,25 +1,25 @@
-.containerObsRelatorio{
+.containerTime{
     display: flex;
     flex-direction: column;
-    min-width: 400px;
-    max-width: 600px;
+    width: 228px;
     border: 3px solid white;
     border-radius: 5px;
-    margin: 22px;
+    margin: 7px;
+    max-height: 200px;
+    min-height: 67px;
 }
 
-.labelObsRelatorio{
+.labelTime{
     background-color: rgb(255, 94, 0);
     padding: 4px;
     color: white;
-    font-size: 13px;
+    font-size: 14.5px;
     font-weight: bold;
 }
 
-.textareaObsRelatorio{
+.inputTime{
     padding: 4px;
     font-size: 15px;
     outline: none;
-    resize: none;
     height: 100%;
 }

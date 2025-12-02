@@ -11,6 +11,11 @@ import Alimentacao from './Components/Alimentacao/Alimentacao';
 import Obs from './Components/Obs/Obs';
 import Verificado from './Components/Select/Verificado/Verificado';
 import Pago from './Components/Select/Pago/Pago';
+import DataInicio from './Components/DateTime/Date/DataInicio';
+import DataFim from './Components/DateTime/Date/DataFim';
+import HoraIni from './Components/DateTime/Time/HoraIni';
+import HoraFim from './Components/DateTime/Time/HoraFim';
+
 
 export default function Relatorio(){
 
@@ -20,13 +25,43 @@ export default function Relatorio(){
     useEffect(() => {
         buscaRelatorio(id);
     }, []);
-    
+
 
     return(
         <div id="relatorioContainer">
             <h1 id="titleRelatorio">Editar relatório</h1>
 
             <div id="formularioContainer">
+
+                <DataInicio
+                    name="Data inicial"
+                    state={relatorioGetters.dateTimeIni}
+                    setter={relatorioSetters.setDateTimeIni}
+                    dateTimeFim={relatorioGetters.dateTimeFim}
+                />
+
+                <HoraIni
+                    name="Hora Inicial"
+                    state={relatorioGetters.dateTimeIni} 
+                    setter={relatorioSetters.setDateTimeIni}
+                    dateTimeFim={relatorioGetters.dateTimeFim}
+                />
+
+                <DataFim
+                    name="Data inicial"
+                    state={relatorioGetters.dateTimeFim}
+                    setter={relatorioSetters.setDateTimeFim}
+                    dateTimeIni={relatorioGetters.dateTimeIni}
+                />
+
+                <HoraFim
+                    name="Hora Inicial"
+                    state={relatorioGetters.dateTimeFim} 
+                    setter={relatorioSetters.setDateTimeFim}
+                    dateTimeIni={relatorioGetters.dateTimeIni}
+                />
+
+                
 
                 <InputRelatorio
                     name="Motorista"
@@ -185,7 +220,7 @@ export default function Relatorio(){
             )}
 
             <Obs
-                state={relatorioGetters.obs}
+                value={relatorioGetters.obs}
                 setter={relatorioSetters.setObs}
             />
 

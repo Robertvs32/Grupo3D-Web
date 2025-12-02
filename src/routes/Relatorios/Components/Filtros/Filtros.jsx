@@ -5,19 +5,24 @@ import 'react-datepicker/dist/react-datepicker.css';
 import { ptBR } from 'date-fns/locale';
 import InputFiltro from './Components/InputFiltro';
 import SelectFiltro from './Components/SelectFiltro';
+import { useState, useEffect } from 'react';
+import useRelatorio from '../../../../hooks/useRelatorio';
+import SelectPlaca from './Components/SelectPlaca';
 
-export default function Filtros({buscaRelatorios, setFiltros, filtros, limpaFiltros}){
+export default function Filtros({setFiltros, filtros, limpaFiltros}){
 
-    const optionsPlaca = [
-        {
-            nome: "ABC-1234",
-            value: "ABC-1234"
-        },
-        {
-            nome: "CBA-4321",
-            value: "CBA-4321"
+    const [placas, setPlacas] = useState([]);
+
+    const { buscaPlacas } = useRelatorio();
+
+    useEffect(() => {
+        const busca = async () => {
+            const arrayPlacas = await buscaPlacas();
+            setPlacas(arrayPlacas);
         }
-    ]
+
+        busca();
+    }, [])
 
     const optionsVerificado = [
         {
@@ -99,19 +104,17 @@ export default function Filtros({buscaRelatorios, setFiltros, filtros, limpaFilt
                     filtros={filtros}
                 />
 
-                <SelectFiltro
-                    name="Placa"
+                <SelectPlaca
                     value={filtros.placa}
-                    campo="placa"
                     setFiltros={setFiltros}
                     filtros={filtros}
-                    options={optionsPlaca}
+                    options={placas}
                 />
 
                 <SelectFiltro
                     name="Verificado"
-                    value={filtros.verificado}
                     campo="verificado"
+                    value={filtros.verificado}
                     setFiltros={setFiltros}
                     filtros={filtros}
                     options={optionsVerificado}

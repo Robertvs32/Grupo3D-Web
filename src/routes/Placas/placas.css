@@ -7,7 +7,9 @@
 #titlePlacas{
     text-align: center;
     padding-bottom: 10px;
+    border-bottom: 2px solid white;
     color: white;
+    margin-bottom: 35px;
 }
 .containerPlacasInfos{
     display: flex;
@@ -15,7 +17,7 @@
     border-radius: 6px;
 }
 .titlePlacasInfos{
-    background-color: rgb(255, 64, 0);
+    background-color: rgb(255, 124, 23);
     display: flex;
     border: 2.2px solid white;
     border-top-left-radius: 3px;
@@ -28,6 +30,9 @@
     padding: 10px;
     color: white;
     font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .cardPlaca{
     background-color: rgb(255, 255, 255);
@@ -36,17 +41,20 @@
 }
 .inputPlacaContainer{
     display: flex;
-    width: 50%;
+    width: 20%;
+}
+.inputPlacaContainer input{
+    width: 100%;
 }
 .inputPlaca{
-    width: 100%;
+    width: 20%;
     outline: none;
     padding: 7px;
-    flex: 1;
+    /* flex: 1; */
 }
 .btnRemovePlaca{
     width: 28px;
-    background-color: red;
+    background-color: rgb(255, 85, 0);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -63,6 +71,7 @@
     padding: 7px;
     cursor: pointer;
     color: rgb(56, 49, 49);
+    margin-top: 4px;
 }
 #btnEnviarPlacas{
     background-color: rgb(255, 255, 255);
@@ -75,6 +84,12 @@
     border: 1px solid white;
     cursor: pointer;
     transition: transform 0.3s ease;
+}
+
+@media(max-width: 1130px){
+    .titlePlacasInfos{
+        font-size: 0.75rem;
+    }
 }
 
 

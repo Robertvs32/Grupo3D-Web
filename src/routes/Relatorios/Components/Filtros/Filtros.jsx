@@ -6,14 +6,14 @@ import { ptBR } from 'date-fns/locale';
 import InputFiltro from './Components/InputFiltro';
 import SelectFiltro from './Components/SelectFiltro';
 import { useState, useEffect } from 'react';
-import useRelatorio from '../../../../hooks/useRelatorio';
+import usePlacas from '../../../../hooks/usePlacas';
 import SelectPlaca from './Components/SelectPlaca';
 
 export default function Filtros({setFiltros, filtros, limpaFiltros}){
 
     const [placas, setPlacas] = useState([]);
 
-    const { buscaPlacas } = useRelatorio();
+    const { buscaPlacas } = usePlacas();
 
     useEffect(() => {
         const busca = async () => {
@@ -27,11 +27,11 @@ export default function Filtros({setFiltros, filtros, limpaFiltros}){
     const optionsVerificado = [
         {
             nome: "Verificado",
-            value: "true"
+            value: true
         },
         {
             nome: "Não verificado",
-            value: "false"
+            value: false
         }
         
     ]

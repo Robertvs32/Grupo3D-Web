@@ -1,10 +1,10 @@
 import '../select.css';
 import { useEffect, useState } from 'react';
-import useRelatorio from '../../../../../hooks/useRelatorio';
+import usePlacas from '../../../../../hooks/usePlacas';
 
 export default function Placa({state, setter}){
 
-    const { buscaPlacas } = useRelatorio();
+    const { buscaPlacas } = usePlacas();
     const [placas, setPlacas] = useState([]);
 
     useEffect(() => {

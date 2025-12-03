@@ -17,6 +17,6 @@ export default function Pago({state, setter}){
                 <option value="Pago">Pago</option>
                 <option value="Pendente">Pendente</option>
             </select>
-        </div>
+        </div>  
     );
 }

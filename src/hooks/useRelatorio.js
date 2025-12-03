@@ -100,13 +100,6 @@ export default function useRelatorio(){
         recuperaValues(relatorio)
     }
 
-    const buscaPlacas = async () => {
-        const docRef = doc(db, "placas e valores", "WKoQg1pcB401ZWmAk2Pz");
-        const docSnapShot = await getDoc(docRef);
-        const placas = docSnapShot.data();
-
-        return placas.placas;
-    }
 
     const buscaAtribuicoes = async () => {
         const docRef = doc(db, "atribuicoes", "IgxVe1QYFBXPgbZxxh89");
@@ -124,7 +117,11 @@ export default function useRelatorio(){
         return setor.setor;
     }
 
+    const dateIni = new Date(dateTimeIni);
+    dateIni.setHours(0, 0, 0, 0);
+
     const valores = {
+        dateIni,
         motorista,
         dateTimeIni,
         dateTimeFim,
@@ -150,7 +147,7 @@ export default function useRelatorio(){
         outrosSetor,
         alimentacao,
         ...(alimentacao === true && {arrayAlimentacao: arrayAlimentacao}),
-        ...(verificado === "true") ? {verificado: true} : {verificado: false},
+        verificado,
         pagamento,
         horasTrabalhadas: (dateTimeFim - dateTimeIni) / 3600000
     }
@@ -166,20 +163,6 @@ export default function useRelatorio(){
         }
     }
 
-    async function atualizaPlacas(array){
-
-        const placas = {
-            placas: array
-        }
-
-        try{
-            const refDoc = doc(db, "placas e valores", "WKoQg1pcB401ZWmAk2Pz");
-            await setDoc(refDoc, placas);
-            alert("Atualizado com sucesso!");
-        }catch(error){
-            alert(error);
-        }
-    }
 
     const recuperaValues = (object) => {
         setMotorista(object.motorista);
@@ -213,11 +196,9 @@ export default function useRelatorio(){
 
     return{
         buscaRelatorio,
-        buscaPlacas,
         buscaAtribuicoes,
         buscaSetor,
         atualizaDados,
-        atualizaPlacas,
         relatorioGetters,
         relatorioSetters
     }

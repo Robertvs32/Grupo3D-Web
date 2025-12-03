@@ -1,14 +1,13 @@
 import './placas.css'
 import Lixeira from '../../assets/img/lixeira.png'
-import useRelatorio from '../../hooks/useRelatorio';
+import usePlacas from '../../hooks/usePlacas';
 import { useState, useEffect } from 'react';
 
 export default function Usuarios(){
 
-    const { buscaPlacas, atualizaPlacas } = useRelatorio();
+    const { buscaPlacas, atualizaPlacas } = usePlacas();
     const [arrayPlacas, setArrayPlacas] = useState([]);
 
-    
 
     function alteraValue(event, id, campo){
         let value = event.target.value;
@@ -43,7 +42,7 @@ export default function Usuarios(){
 
         const id = arrayPlacas[arrayPlacas.length - 1].id + 1;
 
-        const novoArray = [...arrayPlacas, {id: id, placa: "", valor: ""}];
+        const novoArray = [...arrayPlacas, {id: id, carro: "", placa: "", valorhoracontratante: "", valorhoramotorista: "", valorkm: ""}];
         setArrayPlacas(novoArray);
     }
 
@@ -62,8 +61,11 @@ export default function Usuarios(){
             <div className="containerPlacasInfos">
 
                 <div className="titlePlacasInfos">
+                    <p className="itemTitlePlacas">Carro</p>
                     <p className="itemTitlePlacas">Placa</p>
-                    <p className="itemTitlePlacas">Valor</p>
+                    <p className="itemTitlePlacas">Valor h/contratante</p>
+                    <p className="itemTitlePlacas">Valor h/motorista</p>
+                    <p className="itemTitlePlacas">Valor km</p>
                 </div>
 
                 {arrayPlacas.map((item) => {
@@ -80,17 +82,39 @@ export default function Usuarios(){
                                 <input 
                                     className="inputPlaca" 
                                     type="text" 
-                                    value={item.placa}
-                                    onChange={(event) => alteraValue(event, item.id, "placa")}
+                                    value={item.carro}
+                                    onChange={(event) => alteraValue(event, item.id, "carro")}
                                 />
                             </div>
                             
                             <input 
                                 className="inputPlaca" 
                                 type="text" 
-                                value={item.valor}
-                                onChange={(event) => alteraValue(event, item.id, "valor")}
+                                value={item.placa}
+                                onChange={(event) => alteraValue(event, item.id, "placa")}
                             />
+
+                            <input 
+                                className="inputPlaca" 
+                                type="text" 
+                                value={item.valorhoracontratante}
+                                onChange={(event) => alteraValue(event, item.id, "valorhoracontratante")}
+                            />
+
+                            <input 
+                                className="inputPlaca" 
+                                type="text" 
+                                value={item.valorhoramotorista}
+                                onChange={(event) => alteraValue(event, item.id, "valorhoramotorista")}
+                            />
+
+                            <input 
+                                className="inputPlaca" 
+                                type="text" 
+                                value={item.valorkm}
+                                onChange={(event) => alteraValue(event, item.id, "valorkm")}
+                            />
+                            
                         </div>
                         </>
                     );

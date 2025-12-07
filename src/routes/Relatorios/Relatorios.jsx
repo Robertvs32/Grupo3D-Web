@@ -2,22 +2,19 @@ import './relatorios.css'
 import RelatoriosPreview from './Components/RelatorioPreview/RelatoriosPreview';
 import Filtros from './Components/Filtros/Filtros'
 import useRelatorios from '../../hooks/useRelatorios';
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 
 export default function RelatoriosPendentes(){
 
-    const [loading, setLoading] = useState(true);
-
-    const {relatorios, buscaRelatorios, excluiDocumento, filtros, setFiltros, limpaFiltros} = useRelatorios();
+    const {relatorios, buscaRelatorios, excluiDocumento, filtros, setFiltros, limpaFiltros, loading } = useRelatorios();
 
     useEffect(() => {
         buscaRelatorios();
-        setLoading(false);
     },[filtros])
 
     {if(loading === true){
         return(
-            <h1>Carregando</h1>
+            <h1 style={{marginLeft: '280px', color: 'white'}}>Carregando</h1>
         )
     }
 

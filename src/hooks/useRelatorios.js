@@ -4,6 +4,7 @@ import { collection, where, query, getDocs, orderBy, doc, deleteDoc } from "fire
 
 export default function useRelatorios(){
 
+     const [loading, setLoading] = useState(true);
     const [relatorios, setRelatorios] = useState([]);
 
     const [filtros, setFiltros] = useState({
@@ -62,7 +63,8 @@ export default function useRelatorios(){
 
             arrayRestricoes.push(orderBy('dateTimeIni', 'desc'))
 
-            const q = query(collection(db, 'relatorios'), ...arrayRestricoes);
+            const colecao = collection(db, 'relatorios')
+            const q = query(colecao, ...arrayRestricoes);
             const querySnapShot = await getDocs(q);
             const listaRelatorios = querySnapShot.docs.map(doc => ({
                 id: doc.id,
@@ -70,6 +72,7 @@ export default function useRelatorios(){
             }));
 
             setRelatorios(listaRelatorios);
+            setLoading(false);
 
         } catch(error){
             console.log(error);
@@ -114,6 +117,7 @@ export default function useRelatorios(){
         buscaRelatorios,
         excluiDocumento,
         filtros,
+        loading,
         setFiltros,
         limpaFiltros,
     }

@@ -19,7 +19,7 @@ export default function Login(){
                 <img id="imgLogin" src={Logo} alt="" />
 
                 <div className="inputLogin">
-                    <img className="imgInputUser" src={User} alt="" />
+                    <img className="imgInputUser" src={User} alt="user" />
                     <input 
                         className="input" 
                         type="text"
@@ -29,7 +29,7 @@ export default function Login(){
                 </div>
 
                 <div className="inputLogin">
-                    <img className="imgInputSenha" src={Senha} alt="" />
+                    <img className="imgInputSenha" src={Senha} alt="senha" />
                     <input 
                         className="input" 
                         type="password"

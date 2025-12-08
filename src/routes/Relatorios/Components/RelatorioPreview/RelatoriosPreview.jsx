@@ -1,8 +1,9 @@
 import './relatoriosPreview.css'
-import seta from '../../../../assets/img/seta-direita.png'
 import lixeira from '../../../../assets/img/lixeira.png'
 import { Link } from 'react-router';
 import Editar from '../../../../assets/img/editar.png'
+import contratante from '../../../../assets/img/aperto-de-mao.png'
+import motorista from '../../../../assets/img/condutor.png'
 
 export default function RelatoriosPreview({relatorios, buscaRelatorios, excluiDocumento}){
 
@@ -58,9 +59,14 @@ export default function RelatoriosPreview({relatorios, buscaRelatorios, excluiDo
         
                 <Link 
                     to={`/relatorio/${doc.id}`}
-                    className="acessarBtn"
                 >
-                    <img src={seta} alt="" />
+                    <img className="imgDocs" src={motorista} alt="" />
+                </Link>
+
+                <Link 
+                    to={`/relatorio/${doc.id}`}
+                >
+                    <img className="imgDocs" src={contratante} alt="" />
                 </Link>
 
             </div>

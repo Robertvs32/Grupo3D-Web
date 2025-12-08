@@ -35,23 +35,6 @@
     text-align: center;
     font-size: 11.2px;
 }
-.acessarBtn {
-    background-color: white;
-    border: none;
-    width: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-left: 2px;
-    cursor: pointer;
-    padding: 5px;
-    transition: transform 0.5s ease
-}
-.acessarBtn img{
-    width: 100%;
-    height: 100%;
-    background-color: none;
-}
 .acessarBtn:hover{
     border-radius: 4px;
     transform: scale(1.2)
@@ -95,4 +78,17 @@
 }
 .editBtn:hover{
     background-color: rgb(222, 222, 222);
+}
+.imgDocs{
+    background-color: rgb(71, 71, 71);
+    border-radius: 10px;
+    color: blue;
+    margin-right: 5px;
+    width: 33px;
+    padding: 2px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+.imgDocs:hover{
+    transform: scale(1.1)
 }

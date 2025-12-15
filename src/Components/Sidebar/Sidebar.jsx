@@ -20,9 +20,21 @@ export default function Sidebar({setterLogout}){
             />
 
             <CardSidebar
-                titulo="Placas e valores"
+                titulo="Placas"
                 img={Placa}
-                path="usuarios"
+                path="placas"
+            />
+
+            <CardSidebar
+                titulo="Atribuicoes"
+                img={Placa}
+                path="placas"
+            />
+
+            <CardSidebar
+                titulo="Setores"
+                img={Placa}
+                path="placas"
             />
 
             <CardSidebar

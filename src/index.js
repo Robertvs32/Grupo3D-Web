@@ -22,7 +22,7 @@ const router = createBrowserRouter([
         element: <Relatorio/>
       },
       {
-        path: "usuarios",
+        path: "placas",
         element: <Placas/>
       },
       {

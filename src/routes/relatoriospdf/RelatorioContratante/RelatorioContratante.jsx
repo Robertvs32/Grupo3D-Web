@@ -6,6 +6,7 @@ import SoraRegular from '../../../assets/fonts/Sora-Regular.ttf';
 import SoraBold from '../../../assets/fonts/Sora-Bold.ttf'
 import useRelatorio from '../../../hooks/useRelatorio';
 import { useParams } from 'react-router';
+import usePlacas from '../../../hooks/usePlacas';
 
 Font.register({
     family: 'Sora',
@@ -33,7 +34,10 @@ const Pdf = memo(({
         kmIni,
         kmFim,
         minutosTrabalhados,
-        kmRodado
+        kmRodado,
+        arrayAlimentacao,
+        alimentacao,
+        valorTotal
     }) => (
     <Document>
         <Page style={styles.page}>
@@ -108,10 +112,11 @@ const Pdf = memo(({
                 <Text style={styles.infoInput}>{kmRodado}</Text>
             </View>
 
-            <View style={styles.alimentacao}>
-                <Text style={styles.bold}>Alimentacao</Text>
+            {alimentacao && (
+                <View style={styles.alimentacao}>
+                    <Text style={styles.bold}>Alimentacao</Text>
 
-                <View style={styles.containerAlimentacao}>
+                    <View style={styles.containerAlimentacao}>
 
                     <View style={styles.titlesAlimentacao}>
                         <View style={styles.cardAlimentacao1}>
@@ -123,29 +128,23 @@ const Pdf = memo(({
                         </View>
                     </View>
 
-                    <View style={styles.titlesAlimentacao}>
-                        <View style={styles.cardAlimentacao1}>
-                            <Text>Almoco</Text>
+                    {arrayAlimentacao.map((item) => (
+                        <View style={styles.titlesAlimentacao}>
+                            <View style={styles.cardAlimentacao1}>
+                                <Text>{item.refeicao}</Text>
+                            </View>
+                            
+                            <View style={styles.cardAlimentacao}>
+                                <Text>{`R$ ${item.valor}`}</Text>
+                            </View>
                         </View>
-                        
-                        <View style={styles.cardAlimentacao}>
-                            <Text>{`R$ 55,90`}</Text>
-                        </View>
+                    ))}
                     </View>
-
-                    <View style={styles.titlesAlimentacao}>
-                        <View style={styles.cardAlimentacao1}>
-                            <Text>Janta</Text>
-                        </View>
-                        
-                        <View style={styles.cardAlimentacao}>
-                            <Text>{`R$ 32,90`}</Text>
-                        </View>
-                    </View>
-                    
                 </View>
+            )}
 
-            </View>
+            <Text style={styles.valorTotal}>{`Valor Total: R$ ${valorTotal.toFixed(2)}`}</Text>
+            
 
         </Page>
     </Document>
@@ -154,12 +153,34 @@ const Pdf = memo(({
 export default function RelatorioContratante(){
 
     const { buscaRelatorio, relatorioGetters } = useRelatorio();
+    const { buscaPlacas } = usePlacas();
+
+    const [valorTotal, setValorTotal] = useState(0);
 
     const { id } = useParams();
 
     useEffect(() => {
         buscaRelatorio(id);
-    })
+    }, [])
+
+    useEffect(() => {
+        const busca = async () => {
+            const placas = await buscaPlacas();
+            const placa = placas.find(item => (item.placa === relatorioGetters.placa));
+            let valorPlaca = 0;
+
+            if(placa != undefined){
+                valorPlaca = placa.valorhoracontratante;
+            }
+
+            const totalAlimentacao = relatorioGetters.arrayAlimentacao.reduce((acumulador, item) => {
+                return acumulador + Number(item.valor);
+            }, 0)
+
+            setValorTotal(totalAlimentacao + (valorPlaca * relatorioGetters.horasTrabalhadas))
+        }
+        busca();
+    },[relatorioGetters.placa, relatorioGetters.alimentacao])
 
     function minutosTrabalhados(horas){
         const intHoras = parseInt(horas);
@@ -203,6 +224,9 @@ export default function RelatorioContratante(){
                     kmIni={relatorioGetters.kmIni}
                     kmFim={relatorioGetters.kmFim}
                     kmRodado={kmTotal(relatorioGetters.kmIni, relatorioGetters.kmFim)}
+                    arrayAlimentacao={relatorioGetters.arrayAlimentacao}
+                    alimentacao={relatorioGetters.alimentacao}
+                    valorTotal={valorTotal}
                     
                 />
             </PDFViewer>
@@ -247,7 +271,7 @@ const styles = StyleSheet.create({
         width: '200px',
         border: '1px solid black',
         borderRadius: '3px',
-        marginTop: '5px'
+        marginTop: '10px'
     },
     titlesAlimentacao: {
         width: '100%',
@@ -277,5 +301,14 @@ const styles = StyleSheet.create({
     },
     bold: {
         fontWeight: 'bold'
+    },
+    valorTotal: {
+        fontSize: '19px',
+        position: 'absolute',
+        bottom: '40px',
+        right: '40px',
+        border: '1px solid black',
+        padding: '10px',
+        borderRadius: '5px'
     }
 })

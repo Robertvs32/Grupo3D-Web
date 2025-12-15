@@ -80,7 +80,6 @@
     background-color: rgb(222, 222, 222);
 }
 .imgDocs{
-    background-color: rgb(71, 71, 71);
     border-radius: 10px;
     color: blue;
     margin-right: 5px;
@@ -90,5 +89,5 @@
     transition: transform 0.2s ease;
 }
 .imgDocs:hover{
-    transform: scale(1.1)
+    transform: scale(1.15)
 }

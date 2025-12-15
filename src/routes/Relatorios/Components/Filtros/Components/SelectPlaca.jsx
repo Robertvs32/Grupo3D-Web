@@ -1,8 +1,8 @@
 export default function SelectPlaca({value, setFiltros, filtros, options}){
 
     function alteraFiltro(event){
-        const value = event.target.value;
-        setFiltros({...filtros, placa: value});
+        const valor = event.target.value;
+        setFiltros({...filtros, placa: valor});
     }
 
     return(

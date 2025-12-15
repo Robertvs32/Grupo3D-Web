@@ -1,0 +1,14 @@
+#containerRelatorioContratante{
+    max-width: 100%;
+    min-height: 100vh;
+    background-color: rgb(255, 128, 0);
+    margin-left: 280px;
+    padding: 20px;
+}
+#titleRelatorioContratante{
+    text-align:  center;
+    color: white;
+    border-bottom: 2px solid white;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+}

@@ -31,6 +31,7 @@ export default function useRelatorio(){
     const [arrayAlimentacao, setArrayAlimentacao] = useState([]);
     const [verificado, setVerificado] = useState('');
     const [pagamento, setPagamento] = useState('');
+    const [horasTrabalhadas, setHorasTrabalhadas] = useState('')
 
     const relatorioGetters = {
         motorista,
@@ -59,7 +60,8 @@ export default function useRelatorio(){
         alimentacao,
         arrayAlimentacao,
         verificado,
-        pagamento
+        pagamento,
+        horasTrabalhadas
     }
 
     const relatorioSetters = {
@@ -147,9 +149,10 @@ export default function useRelatorio(){
         outrosSetor,
         alimentacao,
         ...(alimentacao === true && {arrayAlimentacao: arrayAlimentacao}),
-        verificado,
+        ...(verificado == "true" ? { verificado: true } : { verificado: false }),
         pagamento,
-        horasTrabalhadas: (dateTimeFim - dateTimeIni) / 3600000
+        horasTrabalhadas: (dateTimeFim - dateTimeIni) / 3600000,
+        kmRodado: kmFim - kmIni
     }
 
 
@@ -192,6 +195,7 @@ export default function useRelatorio(){
         setDateTimeIni(object.dateTimeIni.toDate());
         setDateTimeFim(object.dateTimeFim.toDate());
         setAtribuicao(object.atribuicao);
+        setHorasTrabalhadas(object.horasTrabalhadas)
     }
 
     return{

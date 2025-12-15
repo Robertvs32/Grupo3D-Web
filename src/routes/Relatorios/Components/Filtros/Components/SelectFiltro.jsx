@@ -1,8 +1,8 @@
 export default function SelectFiltro({name, campo, value, setFiltros, filtros, options}){
 
     function alteraFiltro(event, campo){
-        const value = event.target.value;
-        setFiltros({...filtros, [campo]: value});
+        const valor = event.target.value;
+        setFiltros({...filtros, [campo]: valor});
     }
 
     return(

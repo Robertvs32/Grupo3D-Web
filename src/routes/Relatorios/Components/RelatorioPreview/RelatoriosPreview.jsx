@@ -64,7 +64,7 @@ export default function RelatoriosPreview({relatorios, buscaRelatorios, excluiDo
                 </Link>
 
                 <Link 
-                    to={`/relatorio/${doc.id}`}
+                    to={`relatoriocontratante/${doc.id}`}
                 >
                     <img className="imgDocs" src={contratante} alt="" />
                 </Link>

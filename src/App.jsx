@@ -24,12 +24,12 @@ function App() {
 
   if(logado == true){
       return (
-        <>
+        <div id="containerApp">
           <Sidebar
             setterLogout={setLogado}
           />
           <Outlet/>
-        </> 
+        </div> 
       );
     } 
 

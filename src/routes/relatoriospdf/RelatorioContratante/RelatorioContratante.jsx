@@ -37,7 +37,10 @@ const Pdf = memo(({
         kmRodado,
         arrayAlimentacao,
         alimentacao,
-        valorTotal
+        valorTotal,
+        produtora,
+        contratante,
+        veiculo
     }) => (
     <Document>
         <Page style={styles.page}>
@@ -57,6 +60,21 @@ const Pdf = memo(({
             <View style={styles.infoRel}>
                 <Text>Job: </Text>
                 <Text style={styles.infoInput}>{job}</Text>
+            </View>
+
+            <View style={styles.infoRel}>
+                <Text>Produtor(a): </Text>
+                <Text style={styles.infoInput}>{produtora}</Text>
+            </View>
+
+            <View style={styles.infoRel}>
+                <Text>Contratante: </Text>
+                <Text style={styles.infoInput}>{contratante}</Text>
+            </View>
+
+            <View style={styles.infoRel}>
+                <Text>Veiculo: </Text>
+                <Text style={styles.infoInput}>{veiculo}</Text>
             </View>
 
             <View style={styles.infoRel}>
@@ -154,6 +172,7 @@ export default function RelatorioContratante(){
 
     const { buscaRelatorio, relatorioGetters } = useRelatorio();
     const { buscaPlacas } = usePlacas();
+    const [veiculo, setVeiculo] = useState('')
 
     const [valorTotal, setValorTotal] = useState(0);
 
@@ -167,6 +186,8 @@ export default function RelatorioContratante(){
         const busca = async () => {
             const placas = await buscaPlacas();
             const placa = placas.find(item => (item.placa === relatorioGetters.placa));
+            console.log(placa)
+            placa != undefined && setVeiculo(placa.carro); //obter nome do carro para enviar ao relatorio)
             let valorPlaca = 0;
 
             if(placa != undefined){
@@ -227,6 +248,9 @@ export default function RelatorioContratante(){
                     arrayAlimentacao={relatorioGetters.arrayAlimentacao}
                     alimentacao={relatorioGetters.alimentacao}
                     valorTotal={valorTotal}
+                    produtora={relatorioGetters.produtorPessoa}
+                    contratante={relatorioGetters.produtorEmpresa}
+                    veiculo={veiculo}
                     
                 />
             </PDFViewer>
@@ -244,6 +268,11 @@ const styles = StyleSheet.create({
         marginTop: '10px',
         marginBottom: '40px',
         fontSize: '26px',
+        borderLeft: '5px solid rgb(255, 128, 0)',
+        paddingLeft: '16px',
+        backgroundColor: 'rgba(0, 0, 0, 0.1)',
+        width: '330px',
+        paddingVertical: '5px'
     },
     logo: {
         width: '105px',
@@ -269,9 +298,10 @@ const styles = StyleSheet.create({
     },
     containerAlimentacao: {
         width: '200px',
-        border: '1px solid black',
-        borderRadius: '3px',
-        marginTop: '10px'
+        border: '0.5px solid black',
+        marginTop: '10px',
+        borderLeft: '5px solid rgb(255, 128, 0)',
+        paddingLeft: '2px'
     },
     titlesAlimentacao: {
         width: '100%',
@@ -303,12 +333,13 @@ const styles = StyleSheet.create({
         fontWeight: 'bold'
     },
     valorTotal: {
-        fontSize: '19px',
+        fontSize: '20px',
         position: 'absolute',
         bottom: '40px',
         right: '40px',
-        border: '1px solid black',
-        padding: '10px',
-        borderRadius: '5px'
+        borderLeft: '5px solid rgb(255, 128, 0)',
+        padding: '10px 20px 10px 20px',
+        backgroundColor: 'rgba(0, 0, 0, 0.1)',
+        fontWeight: 'bold'
     }
 })

@@ -28,7 +28,7 @@ export default function Usuarios(){
         setArrayPlacas(novoArray);
     }
 
-    function removerRef(id){
+    function removerPlaca(id){
         const novoArray = arrayPlacas.filter((item) => {
             if(item.id != id){
                 return(item);
@@ -39,7 +39,6 @@ export default function Usuarios(){
     }
 
     function addPlaca(){
-
         const id = arrayPlacas[arrayPlacas.length - 1].id + 1;
 
         const novoArray = [...arrayPlacas, {id: id, carro: "", placa: "", valorhoracontratante: "", valorhoramotorista: "", valorkm: ""}];
@@ -75,7 +74,7 @@ export default function Usuarios(){
                             <div className="inputPlacaContainer">
                                 <button 
                                     className="btnRemovePlaca"
-                                    onClick={() => removerRef(item.id)}
+                                    onClick={() => removerPlaca(item.id)}
                                 >
                                     <img className="imgRemovePlaca" src={Lixeira} alt="" />
                                 </button>

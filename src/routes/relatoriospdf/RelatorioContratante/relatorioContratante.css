@@ -4,6 +4,7 @@
     background-color: rgb(255, 128, 0);
     padding: 20px;
     flex: 1;
+    overflow-x: hidden;
 }
 #titleRelatorioContratante{
     text-align:  center;

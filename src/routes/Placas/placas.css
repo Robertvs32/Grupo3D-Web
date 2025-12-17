@@ -2,7 +2,8 @@
     background-color: rgb(255, 128, 0);
     min-height: 100vh;
     padding: 20px;
-    margin-left: 280px;
+    flex: 1;
+    overflow-x: hidden;
 }
 #titlePlacas{
     text-align: center;

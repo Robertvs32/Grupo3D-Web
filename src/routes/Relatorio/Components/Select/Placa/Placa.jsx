@@ -21,7 +21,7 @@ export default function Placa({state, setter}){
             <label className="labelSelectRelatorio">Placa</label>
             <select 
                 className="selectRelatorio"
-                onChange={(event) => setter(event.target.value)}
+                onChange={(event) => {setter(event.target.value)}}
                 value={state}
             >
                 {placas.map((opcao => (

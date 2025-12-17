@@ -7,27 +7,39 @@
     justify-content: space-between;
     padding: 10px;
     margin-top: 10px;
-    background-color: white;
+    background-color: rgb(255, 255, 255);
     color: black;
     align-items: center;
 }
-.cardRelatorioPreviewText{
+.containerItemsCard{
     display: flex;
-    justify-content: space-between;
-    padding: 10px;
-    margin: 10px 0 18px 0;
-    background-color: rgb(255, 255, 255);
-    color: rgb(255, 77, 0);
-    align-items: center;
-    padding-right: 85px;
-    padding-left: 68px;
-    font-weight: bold;
+    width: 100%;
+    margin: 0 5px;
 }
 .itemCard{
-    flex: 1;
     text-align: center;
-    border-right: 1px solid black;
     font-size: 11.2px;
+    color: white;
+    flex: 1;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.titleItemCard{
+    background-color: rgba(197, 116, 2, 0.959);
+    font-weight: bold;
+    font-size: 12px;
+}
+.valueItemCard{
+    background-color: rgb(243, 232, 218);
+    font-weight: bold;
+    padding: 5px;
+    color: black;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
 }
 .itemCardUlt{
     border: none;
@@ -79,15 +91,46 @@
 .editBtn:hover{
     background-color: rgb(222, 222, 222);
 }
+#btnsEditRelatorio{
+    display: flex;
+    flex-direction: row;
+}
+.btnsGerarRelatorio{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.linkGerarRelatorio{
+    display: flex;
+    margin: 4px;
+    align-items: center;
+    justify-content: center;
+    padding: 3px;
+    border-radius: 2.5px;
+}
 .imgDocs{
     border-radius: 10px;
-    color: blue;
-    margin-right: 5px;
-    width: 33px;
-    padding: 2px;
+    width: 30px;
     cursor: pointer;
     transition: transform 0.2s ease;
 }
 .imgDocs:hover{
     transform: scale(1.15)
+}
+
+
+@media(max-width: 1200px){
+    .cardRelatorioPreview{
+        flex-direction: column;
+        align-items: start;
+    }
+    .containerItemsCard{
+        margin: 15px 0;
+    }
+    .containerItemsCard{
+        flex-direction: column;
+    }
+    .linkGerarRelatorio{
+        background-color: rgb(208, 207, 206);
+    }
 }

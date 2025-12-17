@@ -10,64 +10,94 @@ export default function RelatoriosPreview({relatorios, buscaRelatorios, excluiDo
     return(
         <div id="containerRelatoriosPreview">
 
-        <div className="cardRelatorioPreviewText">
-            <p className="itemCard">Data de Inicio</p>
-            <p className="itemCard">Motorista</p>
-            <p className="itemCard">Job</p>
-            <p className="itemCard">Atribuicao</p>
-            <p className="itemCard">setor</p>
-            <p className="itemCard">Contratante</p>
-            <p className="itemCard">Produtor</p>
-            <p className="itemCardUlt">Placa</p>
-        </div>
-
         {relatorios.map(doc => (
             <div 
                 key={doc.id} 
                 className="cardRelatorioPreview" 
-                style={{borderTop: doc.verificado ? '7px solid lightgreen' : '7px solid gray'}}
+                style={{borderTop: doc.verificado ? '8px solid lightgreen' : '8px solid gray'}}
             >
 
-                <button 
-                    className="lixeiraBtn"
-                    onClick={() => {
-                        const confirmacao = window.confirm("Deseja realmente excluir?");
-                        if(confirmacao){
-                            excluiDocumento("relatorios", doc.id)
-                            buscaRelatorios();
-                        }
-                    }}
-                >
-                    <img src={lixeira} alt="" />
-                </button>
+                <div id="btnsEditRelatorio">
+                    <button 
+                        className="lixeiraBtn"
+                        onClick={() => {
+                            const confirmacao = window.confirm("Deseja realmente excluir?");
+                            if(confirmacao){
+                                excluiDocumento("relatorios", doc.id)
+                                buscaRelatorios();
+                            }
+                        }}
+                    >
+                        <img src={lixeira} alt="" />
+                    </button>
 
-                <Link 
-                    to={`/relatorio/${doc.id}`}
-                    className="editBtn"
-                >
-                    <img src={Editar} alt="" />
-                </Link>
+                    <Link 
+                        to={`/relatorio/${doc.id}`}
+                        className="editBtn"
+                    >
+                        <img src={Editar} alt="" />
+                    </Link>
+                </div>
+                
+                <div className="containerItemsCard">
+                    <div className="itemCard">
+                        <p className="titleItemCard">Data inicio</p>
+                        <p className="valueItemCard">{doc.dateTimeIni.toDate().toLocaleDateString()}</p>
+                    </div>
 
-                <p className="itemCard">{doc.dateTimeIni.toDate().toLocaleDateString()}</p>
-                <p className="itemCard">{doc.motorista == '' ? '-----' : doc.motorista}</p>
-                <p className="itemCard">{doc.job == '' ? '-----' : doc.job}</p>
-                <p className="itemCard">{doc.atribuicao == 'Outros' ? doc.outrosAtribuicao : doc.atribuicao}</p>
-                <p className="itemCard">{doc.setor == 'Outros' ? doc.outrosSetor : doc.setor}</p>
-                <p className="itemCard">{doc.produtorEmpresa == '' ? '-----' : doc.produtorEmpresa}</p>
-                <p className="itemCard">{doc.produtorPessoa == '' ? '-----' : doc.produtorPessoa}</p>
-                <p className="itemCardUlt">{doc.placa == '' ? '-----' : doc.placa}</p>
+                    <div className="itemCard">
+                            <p className="titleItemCard">Motorista</p>
+                            <p className="valueItemCard">{doc.motorista == '' ? '-----' : doc.motorista}</p>
+                    </div>
+
+                    <div className="itemCard">
+                            <p className="titleItemCard">Job</p>
+                            <p className="valueItemCard">{doc.job == '' ? '-----' : doc.job}</p>
+                    </div>
+
+                    <div className="itemCard">
+                            <p className="titleItemCard">Atribuicao</p>
+                            <p className="valueItemCard">{doc.atribuicao == 'Outros' ? doc.outrosAtribuicao : doc.atribuicao}</p>
+                    </div>
+
+                    <div className="itemCard">
+                            <p className="titleItemCard">Setor</p>
+                            <p className="valueItemCard">{doc.setor == 'Outros' ? doc.outrosSetor : doc.setor}</p>
+                    </div>
+
+                    <div className="itemCard">
+                            <p className="titleItemCard">Contratante</p>
+                            <p className="valueItemCard">{doc.produtorEmpresa == '' ? '-----' : doc.produtorEmpresa}</p>
+                    </div>
+
+                    <div className="itemCard">
+                            <p className="titleItemCard">Produtor(a)</p>
+                            <p className="valueItemCard">{doc.produtorPessoa == '' ? '-----' : doc.produtorPessoa}</p>
+                    </div>
+
+                    <div className="itemCard">
+                            <p className="titleItemCard">Placa</p>
+                            <p className="valueItemCard">{doc.placa == '' ? '-----' : doc.placa}</p>
+                    </div>
+                </div>
+                
+                <div className="btnsGerarRelatorio">
+                    <Link 
+                        to={`/relatorio/${doc.id}`}
+                        className="linkGerarRelatorio"
+                    >
+                        <img className="imgDocs" src={motorista} alt="" />
+                    </Link>
+
+                    <Link 
+                        to={`relatoriocontratante/${doc.id}`}
+                        className="linkGerarRelatorio"
+                    >
+                        <img className="imgDocs" src={contratante} alt="" />
+                    </Link>
+                </div>
         
-                <Link 
-                    to={`/relatorio/${doc.id}`}
-                >
-                    <img className="imgDocs" src={motorista} alt="" />
-                </Link>
-
-                <Link 
-                    to={`relatoriocontratante/${doc.id}`}
-                >
-                    <img className="imgDocs" src={contratante} alt="" />
-                </Link>
+                
 
             </div>
         ))}

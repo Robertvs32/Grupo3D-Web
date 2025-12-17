@@ -56,7 +56,7 @@ export default function Alimentacao({array, setter}){
             {array.map((refeicao) => {
                 return(
                     <div className="inputsAlimentacao">
-                        <div className="containerInputValor">
+                        <div className="containerInput">
                             <button 
                                 class="removerRef"
                                 onClick={() => removerRef(array, setter, refeicao.id)}
@@ -71,7 +71,7 @@ export default function Alimentacao({array, setter}){
                             />
                                 
                         </div>
-                        <div className="containerInputValor">
+                        <div className="containerInput">
                             <p>R$</p>
                             <input 
                                 className="inputValor"

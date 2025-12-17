@@ -7,22 +7,36 @@ import Placa from '../../assets/img/placa.png';
 import Usuario from '../../assets/img/usuario.png'
 import { auth } from '../../firebaseConfig';
 import { signOut } from 'firebase/auth';
+import { useState } from 'react';
+import setaEsquerda from '../../assets/img/esquerda.png';
+import setaDireita from '../../assets/img/direita.png';
 
 export default function Sidebar({setterLogout}){
+
+    const [showSidebar, setShowSidebar] = useState(true);
+
     return(
-        <div className="sidebarContainer">
+        <div className={`${showSidebar ? 'sidebarContainer' : 'sidebarContainerFechado'}`}>
             <img id="imgSidebarContainer" src={Logo} alt=""/>
 
             <CardSidebar
                 titulo="Relatórios"
                 img={relatorioIcon}
                 path="/"
+                setter={setShowSidebar}
             />
+
+            <button id="btnSidebar"
+                onClick={() => setShowSidebar(ant => !ant)}
+            >
+                <img src={showSidebar ? setaEsquerda : setaDireita} alt="Seta para fechar sidebar"/>
+            </button>
 
             <CardSidebar
                 titulo="Placas"
                 img={Placa}
                 path="placas"
+                setter={setShowSidebar}
             />
 
             <CardSidebar

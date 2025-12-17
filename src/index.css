@@ -3,6 +3,10 @@
   padding: 0;
   box-sizing: border-box;
 }
+:root {
+  --larguraEditarRelatorio: 210px;
+  --cor-principal: #3498db;
+}
 html{
   height: 100vh;
   width: 100vw;
@@ -19,4 +23,6 @@ body{
 #containerApp{
   width: 100%;
   height: 100%;
+  display: flex;
+  flex-direction: row;
 }

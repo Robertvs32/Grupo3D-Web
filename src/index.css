@@ -26,3 +26,6 @@ body{
   display: flex;
   flex-direction: row;
 }
+select{
+  -webkit-appearence: none;
+}

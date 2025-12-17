@@ -52,3 +52,9 @@
     background-color: red;
     cursor: pointer;
 }
+
+@media(max-width: 508px){
+    .checkBoxContainer{
+        width: 100%;
+    }
+}

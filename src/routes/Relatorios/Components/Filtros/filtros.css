@@ -6,6 +6,8 @@
     margin: 0px 0 10px 0;
     align-items: center;
     border-radius: 6px;
+    box-shadow: 0 0 5px white;
+    padding: 10px;
 }
 #btnFiltro{
     background-color: rgb(255, 119, 0);
@@ -27,3 +29,4 @@
     margin: 20px 0 10px 0;
     font-size: 1.4rem
 }
+

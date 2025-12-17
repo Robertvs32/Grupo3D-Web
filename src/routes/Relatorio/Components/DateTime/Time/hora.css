@@ -5,10 +5,8 @@
     border: 2px solid white;
     border-radius: 2px;
     margin: 7px;
-    max-height: 200px;
     min-height: 67px;
 }
-
 .labelTime{
     background-color: rgb(255, 94, 0);
     padding: 4px;
@@ -16,10 +14,15 @@
     font-size: 14.5px;
     font-weight: bold;
 }
-
 .inputTime{
     padding: 4px;
     font-size: 15px;
     outline: none;
     height: 100%;
+}
+
+@media(max-width: 508px){
+    .containerTime{
+        width: 100%;
+    }
 }

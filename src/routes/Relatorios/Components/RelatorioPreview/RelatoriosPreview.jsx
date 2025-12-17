@@ -13,8 +13,8 @@ export default function RelatoriosPreview({relatorios, buscaRelatorios, excluiDo
         {relatorios.map(doc => (
             <div 
                 key={doc.id} 
-                className="cardRelatorioPreview" 
-                style={{borderTop: doc.verificado ? '8px solid lightgreen' : '8px solid gray'}}
+                className={`cardRelatorioPreview ${doc.verificado ? 'verificado' : 'naoVerificado'}`}
+                
             >
 
                 <div id="btnsEditRelatorio">

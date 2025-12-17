@@ -23,3 +23,9 @@
     outline: none;
     height: 100%;
 }
+
+@media(max-width: 508px){
+    #containerVerificado{
+        width: 100%;
+    }
+}

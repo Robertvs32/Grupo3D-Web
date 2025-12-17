@@ -5,11 +5,12 @@
 .cardRelatorioPreview{
     display: flex;
     justify-content: space-between;
-    padding: 10px;
-    margin-top: 10px;
-    background-color: rgb(255, 255, 255);
+    padding: 12px;
+    margin-top: 15px;
+    background-color: rgba(255, 255, 255, 0.943);
     color: black;
     align-items: center;
+    border-radius: 5px;
 }
 .containerItemsCard{
     display: flex;
@@ -26,26 +27,24 @@
     flex-direction: column;
 }
 .titleItemCard{
-    background-color: rgba(197, 116, 2, 0.959);
+    background-color: rgba(48, 48, 48, 0.959);
     font-weight: bold;
+    color: rgb(255, 255, 255);
     font-size: 12px;
+    margin-right: 3px
 }
 .valueItemCard{
-    background-color: rgb(243, 232, 218);
-    font-weight: bold;
     padding: 5px;
-    color: black;
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 12px;
-}
-.itemCardUlt{
-    border: none;
-    flex: 1;
-    text-align: center;
-    font-size: 11.2px;
+    font-size: 12spx;
+    border-bottom: 1px solid black;
+    background-color: rgb(255, 255, 255);
+    /* font-weight: bold; */
+    color: black;
+    padding-bottom: 8px;
 }
 .acessarBtn:hover{
     border-radius: 4px;
@@ -117,6 +116,12 @@
 .imgDocs:hover{
     transform: scale(1.15)
 }
+.verificado{
+    border-left: 10px solid rgb(0, 255, 150);
+}
+.naoVerificado{
+    border-left: 10px solid rgb(126, 126, 126);
+}
 
 
 @media(max-width: 1200px){
@@ -132,5 +137,19 @@
     }
     .linkGerarRelatorio{
         background-color: rgb(208, 207, 206);
+    }
+    .titleItemCard{
+        font-size: 14.5px;
+    }
+    .valueItemCard{
+        font-size: 14px;
+    }
+    .verificado{
+        border-top: 10px solid rgb(0, 255, 150);
+        border-left: none;
+    }
+    .naoVerificado{
+        border-top: 10px solid rgb(126, 126, 126);
+        border-left: none;
     }
 }

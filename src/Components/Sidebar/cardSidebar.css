@@ -1,16 +1,16 @@
 .cardSidebar{
-    background-color: rgb(59, 59, 59);
+    background-color: rgb(58, 58, 58);
     border-radius: 3px;
     width: 90%;
     display: flex;
     align-items: center;
-    margin: 3.5px;
+    margin: 3px;
     padding: 10px 5px;
-    border: 2.5px solid rgb(59, 59, 59);
+    border: 2.5px solid rgba(58, 49, 49, 0);
     text-decoration: none;
 }
 .cardSidebar:hover{
-    background-color: rgb(145, 145, 145);
+    background-color: rgb(255, 106, 0);
     cursor: pointer;
     border: 2.5px solid white;
 }

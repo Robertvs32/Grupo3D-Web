@@ -16,42 +16,17 @@
     display: flex;
     flex-direction: column;
     border-radius: 6px;
-}
-.titlePlacasInfos{
-    background-color: rgb(255, 124, 23);
-    display: flex;
-    border: 2.2px solid white;
-    border-top-left-radius: 3px;
-    border-top-right-radius: 3px;
-}
-.itemTitlePlacas{
-    flex: 1;
-    text-align: center;
-    border: 1px solid white;
-    padding: 10px;
-    color: white;
-    font-weight: bold;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    width: 100%;
+    padding: 2px;
 }
 .cardPlaca{
-    background-color: rgb(255, 255, 255);
-    padding: 2px;
+    background-color: rgb(242, 106, 10);
+    box-shadow: 0 0 1px 0.5px white;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    padding: 5px;
     display: flex;
-}
-.inputPlacaContainer{
-    display: flex;
-    width: 20%;
-}
-.inputPlacaContainer input{
     width: 100%;
-}
-.inputPlaca{
-    width: 20%;
-    outline: none;
-    padding: 7px;
-    /* flex: 1; */
 }
 .btnRemovePlaca{
     width: 28px;
@@ -61,9 +36,29 @@
     justify-content: center;
     cursor: pointer;
     border-radius: 2px;
+    height: 32px;
+    align-self: end;
 }
-.btnRemovePlaca img{
+.imgRemovePlaca{
     width: 80%;
+}
+.inputCards{
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(61, 61, 61);
+    margin-left: 4px;
+    width: 225px;
+}
+.labelInputCards{
+    padding: 3px;
+    color: white;
+    font-size: 13px;
+    width: 100%;
+}
+.inputPlaca{
+    outline: none;
+    padding: 7px;
+    width: 100%;
 }
 #btnAddPlaca{
     background-color: rgb(21, 255, 0);
@@ -87,10 +82,38 @@
     transition: transform 0.3s ease;
 }
 
-@media(max-width: 1130px){
-    .titlePlacasInfos{
-        font-size: 0.75rem;
+@media(max-width: 1000px){
+    .cardPlaca{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+        margin-bottom: 10px;
     }
+    .inputCards{
+        width: 100%;
+        margin-top: 10px;
+        margin-left: 0;
+    }
+    .btnRemovePlaca{
+        align-self: start;
+    }
+    .inputPlaca{
+        font-size: 16px;
+    }
+    #btnEnviarPlacas{
+        background-color: rgb(255, 255, 255);
+        width: 165px;
+        padding: 14px ;
+        margin-top: 15px;
+        font-weight: bold;
+        font-size: 13px;
+        border-radius: 6px;
+        border: 1px solid w hite;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+    }
+
 }
 
 

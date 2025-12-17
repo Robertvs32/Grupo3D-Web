@@ -152,4 +152,8 @@
         border-top: 10px solid rgb(126, 126, 126);
         border-left: none;
     }
+    .btnsGerarRelatorio{
+        display: none;
+        background-color: red;
+    }
 }

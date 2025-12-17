@@ -37,3 +37,10 @@
 #btnEnviar:active{
     transform: scale(0.95);
 }
+
+@media(max-width: 900px){
+    #btnEnviar{
+        font-size: 13px;
+        width: 140px;
+    }
+}

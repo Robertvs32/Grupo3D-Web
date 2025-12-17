@@ -24,6 +24,9 @@ export default function Atribuicao({state, setter}){
                 onChange={(event) => setter(event.target.value)}
                 value={state}
             >
+
+                <option value="Selecionar atribuição" disabled>Selecionar atribuição</option>
+
                 {atribuicoes.map((opcao => (
                     <option value={opcao}>{opcao}</option>
                 )))}

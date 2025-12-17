@@ -59,61 +59,70 @@ export default function Usuarios(){
 
             <div className="containerPlacasInfos">
 
-                <div className="titlePlacasInfos">
-                    <p className="itemTitlePlacas">Carro</p>
-                    <p className="itemTitlePlacas">Placa</p>
-                    <p className="itemTitlePlacas">Valor h/contratante</p>
-                    <p className="itemTitlePlacas">Valor h/motorista</p>
-                    <p className="itemTitlePlacas">Valor km</p>
-                </div>
-
                 {arrayPlacas.map((item) => {
                     return(
                         <>
                         <div className="cardPlaca">
-                            <div className="inputPlacaContainer">
-                                <button 
-                                    className="btnRemovePlaca"
-                                    onClick={() => removerPlaca(item.id)}
-                                >
-                                    <img className="imgRemovePlaca" src={Lixeira} alt="" />
-                                </button>
-                                <input 
+
+                            <button 
+                                className="btnRemovePlaca"
+                                onClick={() => {
+                                    const confirm = window.confirm("Deseja excluir?");
+                                    confirm && removerPlaca(item.id)
+                                }}
+                            >
+                                <img className="imgRemovePlaca" src={Lixeira} alt="" />
+                            </button>
+
+                            <div className="inputCards">
+                                <label className="labelInputCards">Veículo</label>
+                                    <input 
                                     className="inputPlaca" 
                                     type="text" 
                                     value={item.carro}
                                     onChange={(event) => alteraValue(event, item.id, "carro")}
                                 />
                             </div>
-                            
-                            <input 
-                                className="inputPlaca" 
-                                type="text" 
-                                value={item.placa}
-                                onChange={(event) => alteraValue(event, item.id, "placa")}
-                            />
 
-                            <input 
-                                className="inputPlaca" 
-                                type="text" 
-                                value={item.valorhoracontratante}
-                                onChange={(event) => alteraValue(event, item.id, "valorhoracontratante")}
-                            />
+                            <div className="inputCards">
+                                <label className="labelInputCards">Placa</label>
+                                    <input 
+                                    className="inputPlaca" 
+                                    type="text" 
+                                    value={item.placa}
+                                    onChange={(event) => alteraValue(event, item.id, "placa")}
+                                />
+                            </div>
 
-                            <input 
-                                className="inputPlaca" 
-                                type="text" 
-                                value={item.valorhoramotorista}
-                                onChange={(event) => alteraValue(event, item.id, "valorhoramotorista")}
-                            />
+                            <div className="inputCards">
+                                <label className="labelInputCards">Valor hora / contratante</label>
+                                <input 
+                                    className="inputPlaca" 
+                                    type="text" 
+                                    value={item.valorhoracontratante}
+                                    onChange={(event) => alteraValue(event, item.id, "valorhoracontratante")}
+                                />
+                            </div>
 
-                            <input 
-                                className="inputPlaca" 
-                                type="text" 
-                                value={item.valorkm}
-                                onChange={(event) => alteraValue(event, item.id, "valorkm")}
-                            />
-                            
+                            <div className="inputCards">
+                                <label className="labelInputCards">Valor hora / motorista</label>
+                                <input 
+                                    className="inputPlaca" 
+                                    type="text" 
+                                    value={item.valorhoramotorista}
+                                    onChange={(event) => alteraValue(event, item.id, "valorhoramotorista")}
+                                />
+                            </div>
+
+                            <div className="inputCards">
+                                <label className="labelInputCards">Valor km</label>
+                                <input 
+                                    className="inputPlaca" 
+                                    type="text" 
+                                    value={item.valorkm}
+                                    onChange={(event) => alteraValue(event, item.id, "valorkm")}
+                                />
+                            </div>
                         </div>
                         </>
                     );
@@ -130,7 +139,11 @@ export default function Usuarios(){
 
             <button
                 id="btnEnviarPlacas"
-                onClick={async () => await atualizaPlacas(arrayPlacas)}
+                onClick={async () => {
+                    const confirm = window.confirm("Deseja atualizar?");
+                    confirm && await atualizaPlacas(arrayPlacas)}
+                    
+                }
             >
                 Atualizar placas
             </button>

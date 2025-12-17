@@ -24,6 +24,9 @@ export default function Setor({state, setter}){
                 onChange={(event) => setter(event.target.value)}
                 value={state}
             >
+
+                <option value="Selecionar setor" disabled>Selecionar setor</option>
+
                 {setor.map((opcao => (
                     <option value={opcao}>{opcao}</option>
                 )))}

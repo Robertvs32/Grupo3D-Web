@@ -8,8 +8,8 @@
   --cor-principal: #3498db;
 }
 html{
-  height: 100vh;
-  width: 100vw;
+  height: 100%;
+  width: 100%;
 }
 body{
   font-family: "Sora", sans-serif;
@@ -25,7 +25,9 @@ body{
   height: 100%;
   display: flex;
   flex-direction: row;
+  box-sizing: border-box
 }
 select{
   -webkit-appearence: none;
+    appearance: none;
 }

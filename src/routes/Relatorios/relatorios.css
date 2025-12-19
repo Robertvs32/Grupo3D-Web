@@ -4,6 +4,7 @@
     color: white;
     min-height: 100vh;
     overflow-x: hidden;
+    flex: 1;
 }
 #titleRel{
     border-bottom: 2px solid white;

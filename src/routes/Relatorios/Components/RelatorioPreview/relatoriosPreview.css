@@ -25,11 +25,14 @@
     width: 100%;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    margin: 1px;
 }
 .titleItemCard{
-    background-color: rgba(48, 48, 48, 0.959);
+    background-color: rgba(0, 0, 0, 0.788);
+    border-radius: 4px;
     font-weight: bold;
-    color: rgb(255, 255, 255);
+    color: rgba(255, 255, 255, 0.881);
     font-size: 12px;
     margin-right: 3px
 }
@@ -39,12 +42,12 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 12spx;
-    border-bottom: 1px solid black;
-    background-color: rgb(255, 255, 255);
-    /* font-weight: bold; */
-    color: black;
-    padding-bottom: 8px;
+    font-size: 12px;
+    color: rgb(0, 0, 0);
+    background-color: rgba(201, 201, 201, 0.959);
+    border-radius: 4px;
+    margin-right: 3px;
+    margin-top: 2px;
 }
 .acessarBtn:hover{
     border-radius: 4px;
@@ -88,7 +91,7 @@
     height: 100%;
 }
 .editBtn:hover{
-    background-color: rgb(222, 222, 222);
+    background-color: rgb(210, 210, 210);
 }
 #btnsEditRelatorio{
     display: flex;
@@ -106,15 +109,16 @@
     justify-content: center;
     padding: 3px;
     border-radius: 2.5px;
+    transition: background-color 0.5s ease;
+}
+.linkGerarRelatorio:hover{
+    background-color: rgb(210, 210, 210);
 }
 .imgDocs{
     border-radius: 10px;
     width: 30px;
     cursor: pointer;
     transition: transform 0.2s ease;
-}
-.imgDocs:hover{
-    transform: scale(1.15)
 }
 .verificado{
     border-left: 10px solid rgb(0, 255, 150);
@@ -143,6 +147,7 @@
     }
     .valueItemCard{
         font-size: 14px;
+        word-break:break-all;
     }
     .verificado{
         border-top: 10px solid rgb(0, 255, 150);

@@ -1,3 +1,5 @@
+import './cardFiltros.css';
+
 export default function SelectPlaca({value, setFiltros, filtros, options}){
 
     function alteraFiltro(event){
@@ -7,7 +9,7 @@ export default function SelectPlaca({value, setFiltros, filtros, options}){
 
     return(
         <div className="cardFiltros">
-            <label>Placa</label>
+            <label className="labelFiltro">Placa</label>
 
                 <select
                     className="inputFiltro" 

@@ -225,7 +225,7 @@ export default function RelatorioContratante(){
     return(
         <div id="containerRelatorioContratante">
             <h1 id="titleRelatorioContratante">Relatorio Contratante</h1>
-            <PDFViewer style={{width: '100%', height: "700px"}}>
+            <PDFViewer style={{width: '100%', minHeight: "1200px"}}>
                 <Pdf
                     motorista={relatorioGetters.motorista}
                     job={relatorioGetters.job}

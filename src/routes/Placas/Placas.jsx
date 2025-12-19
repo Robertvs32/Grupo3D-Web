@@ -3,7 +3,7 @@ import Lixeira from '../../assets/img/lixeira.png'
 import usePlacas from '../../hooks/usePlacas';
 import { useState, useEffect } from 'react';
 
-export default function Usuarios(){
+export default function Placas(){
 
     const { buscaPlacas, atualizaPlacas } = usePlacas();
     const [arrayPlacas, setArrayPlacas] = useState([]);
@@ -12,7 +12,7 @@ export default function Usuarios(){
     function alteraValue(event, id, campo){
         let value = event.target.value;
         if(campo == "valor"){
-            value = Number(value.replace(",","."));
+            value = (value.replace(",","."));
         }
         
 

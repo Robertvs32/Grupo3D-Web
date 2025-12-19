@@ -29,5 +29,9 @@ body{
 }
 select{
   -webkit-appearence: none;
-    appearance: none;
+  appearance: none;
+}
+input{
+  -webkit-appearence: none;
+  appearance: none;
 }

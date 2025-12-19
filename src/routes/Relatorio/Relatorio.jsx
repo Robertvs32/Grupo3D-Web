@@ -61,8 +61,6 @@ export default function Relatorio(){
                     dateTimeIni={relatorioGetters.dateTimeIni}
                 />
 
-                
-
                 <InputRelatorio
                     name="Motorista"
                     value={relatorioGetters.motorista}

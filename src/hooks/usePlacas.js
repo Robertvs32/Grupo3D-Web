@@ -14,7 +14,13 @@ export default function usePlacas(){
     const atualizaPlacas = async (array) => {
 
         const placas = {
-            placas: array
+            placas: array.map((item) => {
+                return {...item, 
+                    valorhoracontratante: Number(item.valorhoracontratante),
+                    valorhoramotorista: Number(item.valorhoramotorista),
+                    valorkm: Number(item.valorkm)
+                }
+            })
         }
 
         try{

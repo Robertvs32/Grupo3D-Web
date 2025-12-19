@@ -3,10 +3,11 @@
     flex-direction: column;
     width: 210px;
     border: 2px solid white;
-    border-radius: 2px;
     margin: 7px;
     max-height: 200px;
     min-height: 67px;
+    border-radius: 5px;
+    padding: 2px;
 }
 #labelPago{
     background-color: rgb(255, 94, 0);
@@ -20,6 +21,7 @@
     font-size: 15px;
     outline: none;
     height: 100%;
+    border: none;
 }
 
 @media(max-width: 508px){

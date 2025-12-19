@@ -149,7 +149,7 @@ export default function useRelatorio(){
         outrosSetor,
         alimentacao,
         ...(alimentacao === true && {arrayAlimentacao: arrayAlimentacao}),
-        ...(verificado == "true" ? { verificado: true } : { verificado: false }),
+        ...(verificado == "true" || verificado == true ? { verificado: true } : { verificado: false }),
         pagamento,
         horasTrabalhadas: (dateTimeFim - dateTimeIni) / 3600000,
         kmRodado: kmFim - kmIni

@@ -10,6 +10,8 @@ import { signOut } from 'firebase/auth';
 import { useState } from 'react';
 import setaEsquerda from '../../assets/img/esquerda.png';
 import setaDireita from '../../assets/img/direita.png';
+import atribuicao from '../../assets/img/atribuicao.png'
+import Setores from '../../assets/img/setores.png'
 
 export default function Sidebar({setterLogout}){
 
@@ -41,19 +43,23 @@ export default function Sidebar({setterLogout}){
 
             <CardSidebar
                 titulo="Atribuicoes"
-                img={Placa}
-                path="placas"
+                img={atribuicao}
+                path="atribuicoes"
+                setter={setShowSidebar}
             />
 
             <CardSidebar
                 titulo="Setores"
-                img={Placa}
+                img={Setores}
                 path="placas"
+                setter={setShowSidebar}
             />
 
             <CardSidebar
                 titulo="Usuários"
                 img={Usuario}
+                path="placas"
+                setter={setShowSidebar}
             />
 
             <button 

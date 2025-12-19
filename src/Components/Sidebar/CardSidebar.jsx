@@ -9,7 +9,7 @@ export default function CardSidebar({titulo, img, path, setter}){
             onClick={() => {setter(ant => !ant)}}
         >
             <img className="imgCardSidebar" src={img} alt=""/>
-            <p style={{color: 'white'}}>{titulo}</p>
+            <p className="titleCardSidebar">{titulo}</p>
         </Link>
     );
 }

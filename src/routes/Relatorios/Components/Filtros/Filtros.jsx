@@ -44,7 +44,7 @@ export default function Filtros({setFiltros, filtros, limpaFiltros}){
             <div id="filtrosContainer">
 
                 <div className="cardFiltros">
-                    <label>Data Inicio</label>
+                    <label className="labelFiltro">Data Inicio</label>
 
                     <DatePicker
                         id="teste"

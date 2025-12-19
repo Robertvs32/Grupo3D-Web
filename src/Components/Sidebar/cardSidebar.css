@@ -1,18 +1,31 @@
 .cardSidebar{
-    background-color: rgb(58, 58, 58);
-    border-radius: 3px;
     width: 90%;
     display: flex;
     align-items: center;
     margin: 3px;
-    padding: 10px 5px;
-    border: 2.5px solid rgba(58, 49, 49, 0);
+    padding: 10px 5px 12px 5px;
     text-decoration: none;
+    position: relative;
+    transition: color 1s ease;
 }
-.cardSidebar:hover{
-    background-color: rgb(255, 106, 0);
-    cursor: pointer;
-    border: 2.5px solid white;
+.titleCardSidebar{
+    color: white;
+    transition: color 1s ease;
+}
+.cardSidebar::after{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(255, 118, 13, 0.968);
+    height: 1px;
+    transform: scaleX(0);
+    transition: transform 1s ease;
+    transform-origin: left;
+}
+.cardSidebar:hover::after{
+    transform: scaleX(1)
 }
 .imgCardSidebar{
     width: 23px;

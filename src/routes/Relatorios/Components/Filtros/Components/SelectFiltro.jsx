@@ -1,3 +1,5 @@
+import './cardFiltros.css';
+
 export default function SelectFiltro({name, campo, value, setFiltros, filtros, options}){
 
     function alteraFiltro(event, campo){
@@ -7,7 +9,7 @@ export default function SelectFiltro({name, campo, value, setFiltros, filtros, o
 
     return(
         <div className="cardFiltros">
-            <label>{name}</label>
+            <label className="labelFiltro">{name}</label>
 
                 <select
                     className="inputFiltro" 

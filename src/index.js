@@ -7,6 +7,7 @@ import Relatorios from './routes/Relatorios/Relatorios';
 import Relatorio from './routes/Relatorio/Relatorio';
 import Placas from './routes/Placas/Placas';
 import RelatorioContratante from './routes/relatoriospdf/RelatorioContratante/RelatorioContratante';
+import Atribuicoes from './routes/Atribuicoes/Atribuicoes'
 
 const router = createBrowserRouter([
   {
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
       {
         path: "placas",
         element: <Placas/>
+      },
+      {
+        path: "atribuicoes",
+        element: <Atribuicoes/>
       },
       {
         path: "relatoriocontratante/:id",

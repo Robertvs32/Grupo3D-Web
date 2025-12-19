@@ -28,10 +28,10 @@ body{
   box-sizing: border-box
 }
 select{
-  -webkit-appearence: none;
+  -webkit-appearance: none;
   appearance: none;
 }
 input{
-  -webkit-appearence: none;
+  -webkit-appearance: none;
   appearance: none;
 }

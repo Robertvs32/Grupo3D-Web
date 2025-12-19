@@ -23,6 +23,7 @@
     height: 100%;
     border: none;
     width: 100%;
+    color: black;
 }
 @media(max-width: 508px){
     .containerSelectRelatorio{

@@ -166,6 +166,17 @@ export default function useRelatorio(){
         }
     }
 
+    async function atualizaAtribuicoes(atribuicoes){
+        try{    
+            
+            const refDoc = doc(db, "atribuicoes", "IgxVe1QYFBXPgbZxxh89");
+            await setDoc(refDoc, { atribuicoes });
+            alert("Atualizado com sucesso!");
+        }catch(error){
+            alert(error);
+        }
+    }
+
 
     const recuperaValues = (object) => {
         setMotorista(object.motorista);
@@ -204,7 +215,8 @@ export default function useRelatorio(){
         buscaSetor,
         atualizaDados,
         relatorioGetters,
-        relatorioSetters
+        relatorioSetters,
+        atualizaAtribuicoes
     }
 
 }

@@ -9,10 +9,9 @@ import { useState, useEffect } from 'react';
 import usePlacas from '../../../../hooks/usePlacas';
 import SelectPlaca from './Components/SelectPlaca';
 
-export default function Filtros({setFiltros, filtros, limpaFiltros}){
+export default function Filtros({setFiltros, filtros, limpaFiltros, buscaRelatorios}){
 
     const [placas, setPlacas] = useState([]);
-
     const { buscaPlacas } = usePlacas();
 
     useEffect(() => {
@@ -36,24 +35,31 @@ export default function Filtros({setFiltros, filtros, limpaFiltros}){
         
     ]
 
-
     return(
         <>
             <h2 id="titleFiltros">Filtros</h2>
 
             <div id="filtrosContainer">
-
                 <div className="cardFiltros">
                     <label className="labelFiltro">Data Inicio</label>
 
                     <DatePicker
-                        id="teste"
                         selected={filtros.dataInicio}
                         onChange={(valor) => setFiltros({...filtros, ['dataInicio']: valor})}
                         dateFormat="dd/MM/yyyy"
                         locale={ptBR}
                     />
-                    
+                </div>
+
+                <div className="cardFiltros">
+                    <label className="labelFiltro">Data Final</label>
+
+                    <DatePicker
+                        selected={filtros.dataFim}
+                        onChange={(valor) => setFiltros({...filtros, ['dataFim']: valor})}
+                        dateFormat="dd/MM/yyyy"
+                        locale={ptBR}
+                    />
                 </div>
 
                 <InputFiltro 
@@ -119,18 +125,27 @@ export default function Filtros({setFiltros, filtros, limpaFiltros}){
                     filtros={filtros}
                     options={optionsVerificado}
                 />
-
-                
             </div>
 
             <button 
                 id="btnFiltro"
-                onClick={async () => {
+                onClick={() => {
                     limpaFiltros(); 
                 }}
             >
                 Limpar Filtros
             </button>
+
+            <button 
+                id="btnFiltro"
+                onClick={() => {
+                    buscaRelatorios(); 
+                }}
+            >
+                Aplicar filtros
+            </button>
+
+            
         </>
         
     );

@@ -11,6 +11,7 @@
     color: black;
     align-items: center;
     border-radius: 5px;
+    position: relative;
 }
 .containerItemsCard{
     display: flex;
@@ -97,36 +98,18 @@
     display: flex;
     flex-direction: row;
 }
-.btnsGerarRelatorio{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.linkGerarRelatorio{
-    display: flex;
-    margin: 4px;
-    align-items: center;
-    justify-content: center;
-    padding: 3px;
-    border-radius: 2.5px;
-    transition: background-color 0.5s ease;
-}
-.linkGerarRelatorio:hover{
-    background-color: rgb(210, 210, 210);
-}
-.imgDocs{
-    border-radius: 10px;
-    width: 30px;
-    cursor: pointer;
-    transition: transform 0.2s ease;
-}
 .verificado{
     border-left: 10px solid rgb(0, 255, 150);
 }
 .naoVerificado{
     border-left: 10px solid rgb(126, 126, 126);
 }
-
+.btnCheckboxColecao{
+    height: 25px;
+    width: 25px;
+    cursor: pointer;
+    font-weight: bold;
+}
 
 @media(max-width: 1200px){
     .cardRelatorioPreview{
@@ -138,9 +121,6 @@
     }
     .containerItemsCard{
         flex-direction: column;
-    }
-    .linkGerarRelatorio{
-        background-color: rgb(208, 207, 206);
     }
     .titleItemCard{
         font-size: 14.5px;
@@ -157,8 +137,9 @@
         border-top: 10px solid rgb(126, 126, 126);
         border-left: none;
     }
-    .btnsGerarRelatorio{
-        display: none;
-        background-color: red;
+    .btnCheckboxColecao{
+        position: absolute;
+        top: 15px;
+        right: 16px
     }
 }

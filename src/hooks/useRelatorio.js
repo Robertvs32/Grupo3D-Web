@@ -122,8 +122,12 @@ export default function useRelatorio(){
     const dateIni = new Date(dateTimeIni);
     dateIni.setHours(0, 0, 0, 0);
 
+    const dateFim = new Date(dateTimeFim);
+    dateFim.setHours(0, 0, 0, 0);
+
     const valores = {
         dateIni,
+        dateFim,
         motorista,
         dateTimeIni,
         dateTimeFim,

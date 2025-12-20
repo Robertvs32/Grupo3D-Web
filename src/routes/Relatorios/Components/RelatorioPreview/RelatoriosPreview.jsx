@@ -2,10 +2,18 @@ import './relatoriosPreview.css'
 import lixeira from '../../../../assets/img/lixeira.png'
 import { Link } from 'react-router';
 import Editar from '../../../../assets/img/editar.png'
-import contratante from '../../../../assets/img/aperto-de-mao.png'
-import motorista from '../../../../assets/img/condutor.png'
 
-export default function RelatoriosPreview({relatorios, buscaRelatorios, excluiDocumento}){
+export default function RelatoriosPreview({relatorios, buscaRelatorios, excluiDocumento, colecao, setColecao}){
+
+    function addColecao(id){
+        if(colecao.includes(id)){
+            const arrayTemporario = colecao.filter(item => item != id);
+            setColecao(arrayTemporario);
+            return;
+        }
+        const novoArray = [...colecao, id];
+        setColecao(novoArray);
+    }
 
     return(
         <div id="containerRelatoriosPreview">
@@ -46,6 +54,11 @@ export default function RelatoriosPreview({relatorios, buscaRelatorios, excluiDo
                     </div>
 
                     <div className="itemCard">
+                        <p className="titleItemCard">Data final</p>
+                        <p className="valueItemCard">{doc.dateTimeFim.toDate().toLocaleDateString()}</p>
+                    </div>
+
+                    <div className="itemCard">
                             <p className="titleItemCard">Motorista</p>
                             <p className="valueItemCard">{doc.motorista == '' ? '-----' : doc.motorista}</p>
                     </div>
@@ -81,21 +94,12 @@ export default function RelatoriosPreview({relatorios, buscaRelatorios, excluiDo
                     </div>
                 </div>
                 
-                <div className="btnsGerarRelatorio">
-                    <Link 
-                        to={`/relatorio/${doc.id}`}
-                        className="linkGerarRelatorio"
-                    >
-                        <img className="imgDocs" src={motorista} alt="" />
-                    </Link>
-
-                    <Link 
-                        to={`relatoriocontratante/${doc.id}`}
-                        className="linkGerarRelatorio"
-                    >
-                        <img className="imgDocs" src={contratante} alt="" />
-                    </Link>
-                </div>
+                <button 
+                    className="btnCheckboxColecao"
+                    onClick={() => addColecao(doc.id)}
+                >
+                    {colecao.includes(doc.id) ? 'X' : ''}
+                </button>
         
                 
 

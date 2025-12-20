@@ -2,23 +2,17 @@ import './relatorios.css'
 import RelatoriosPreview from './Components/RelatorioPreview/RelatoriosPreview';
 import Filtros from './Components/Filtros/Filtros'
 import useRelatorios from '../../hooks/useRelatorios';
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 
 export default function RelatoriosPendentes(){
 
-    const {relatorios, buscaRelatorios, excluiDocumento, filtros, setFiltros, limpaFiltros, loading } = useRelatorios();
+    const { relatorios, buscaRelatorios, excluiDocumento, filtros, setFiltros, limpaFiltros, gatilho } = useRelatorios();
+
+    const [colecao, setColecao] = useState([]);
 
     useEffect(() => {
         buscaRelatorios();
-    },[filtros])
-
-    {if(loading === true){
-        return(
-            <h1 style={{marginLeft: '280px', color: 'white'}}>Carregando</h1>
-        )
-    }
-
-    }
+    },[])
 
     return(
         <div id="containerRel">
@@ -26,16 +20,21 @@ export default function RelatoriosPendentes(){
 
             <Filtros
                 filtros={filtros}
-                
                 buscaRelatorios={buscaRelatorios}
                 setFiltros={setFiltros}
                 limpaFiltros={limpaFiltros}
             />
 
+            <div>
+                <button id="btnAddColecao">Adicionar colecao</button>
+            </div>
+
             <RelatoriosPreview
                 relatorios={relatorios}
                 buscaRelatorios={buscaRelatorios}
                 excluiDocumento={excluiDocumento}
+                colecao={colecao}
+                setColecao={setColecao}
             />
 
         </div>

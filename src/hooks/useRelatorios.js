@@ -4,11 +4,11 @@ import { collection, where, query, getDocs, orderBy, doc, deleteDoc } from "fire
 
 export default function useRelatorios(){
 
-     const [loading, setLoading] = useState(true);
     const [relatorios, setRelatorios] = useState([]);
 
     const [filtros, setFiltros] = useState({
         dataInicio: '',
+        dataFim: '',
         motorista: '',
         job: '',
         atribuicao: '',
@@ -22,10 +22,14 @@ export default function useRelatorios(){
 
     const buscaRelatorios = async () => {
         try{
-            const arrayRestricoes = []
+            const arrayRestricoes = [];
 
-            if(filtros.dataInicio != ''){
-                arrayRestricoes.push(where('dateIni', '==', filtros.dataInicio),);
+            if(filtros.dataInicio){
+                arrayRestricoes.push(where('dateIni', '>=', filtros.dataInicio),);
+            }
+
+            if(filtros.dataFim){
+                arrayRestricoes.push(where('dateFim', '<=', filtros.dataFim),);
             }
 
             if(filtros.motorista != ''){
@@ -72,7 +76,6 @@ export default function useRelatorios(){
             }));
 
             setRelatorios(listaRelatorios);
-            setLoading(false);
 
         } catch(error){
             console.log(error);
@@ -117,7 +120,6 @@ export default function useRelatorios(){
         buscaRelatorios,
         excluiDocumento,
         filtros,
-        loading,
         setFiltros,
         limpaFiltros,
     }

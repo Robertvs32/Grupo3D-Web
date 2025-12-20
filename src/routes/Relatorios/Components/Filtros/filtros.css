@@ -16,7 +16,7 @@
     border-radius: 5px;
     font-weight: bold;
     transition: background-color 0.3s ease, color 0.3s ease;
-    margin: 5px 10px 15px 0;
+    margin: 5px 10px 5px 0;
     cursor: pointer;
     font-size: 0.9rem;
 }

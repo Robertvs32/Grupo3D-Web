@@ -116,7 +116,7 @@ export default function useRelatorio(){
         const docSnapShot = await getDoc(docRef);
         const setor = docSnapShot.data();
 
-        return setor.setor;
+        return setor.setores;
     }
 
     const dateIni = new Date(dateTimeIni);
@@ -164,17 +164,26 @@ export default function useRelatorio(){
         try{
             const refDoc = doc(db, "relatorios", id);
             await setDoc(refDoc, valores);
+            return("Atualizado com sucesso!");
+        }catch(error){
+            return(`Erro ao atualizar o relatorio! ${error}`);
+        }
+    }
+
+    async function atualizaAtribuicoes(atribuicoes){
+        try{    
+            const refDoc = doc(db, "atribuicoes", "IgxVe1QYFBXPgbZxxh89");
+            await setDoc(refDoc, {atribuicoes});
             alert("Atualizado com sucesso!");
         }catch(error){
             alert(error);
         }
     }
 
-    async function atualizaAtribuicoes(atribuicoes){
+    async function atualizaSetores(setores){
         try{    
-            
-            const refDoc = doc(db, "atribuicoes", "IgxVe1QYFBXPgbZxxh89");
-            await setDoc(refDoc, { atribuicoes });
+            const refDoc = doc(db, "setor", "setor");
+            await setDoc(refDoc, {setores});
             alert("Atualizado com sucesso!");
         }catch(error){
             alert(error);
@@ -220,7 +229,8 @@ export default function useRelatorio(){
         atualizaDados,
         relatorioGetters,
         relatorioSetters,
-        atualizaAtribuicoes
+        atualizaAtribuicoes,
+        atualizaSetores
     }
 
 }

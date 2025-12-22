@@ -1,0 +1,13 @@
+#pageRelatorioPdf{
+    background-color: red;
+}
+#page{
+    position: relative;
+}
+#logoPdf{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    width: 100px;
+    height: 100px;
+}

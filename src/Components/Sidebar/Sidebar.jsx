@@ -2,7 +2,8 @@ import './sidebar.css';
 import Logo from '../../assets/img/logo.png';
 import Logout from '../../assets/img/logout.png';
 import CardSidebar from './CardSidebar';
-import relatorioIcon from '../../assets/img/relatorios.png';
+import relatorios from '../../assets/img/relatorios.png';
+import relatorio from '../../assets/img/relatorio.png'
 import Placa from '../../assets/img/placa.png';
 import Usuario from '../../assets/img/usuario.png'
 import { auth } from '../../firebaseConfig';
@@ -23,16 +24,18 @@ export default function Sidebar({setterLogout}){
 
             <CardSidebar
                 titulo="Relatórios"
-                img={relatorioIcon}
+                img={relatorio}
                 path="/"
                 setter={setShowSidebar}
             />
 
-            <button id="btnSidebar"
-                onClick={() => setShowSidebar(ant => !ant)}
-            >
-                <img src={showSidebar ? setaEsquerda : setaDireita} alt="Seta para fechar sidebar"/>
-            </button>
+            <CardSidebar
+                titulo="Colecoes"
+                img={relatorios}
+                path="colecoes"
+                setter={setShowSidebar}
+            />
+
 
             <CardSidebar
                 titulo="Placas"
@@ -51,7 +54,7 @@ export default function Sidebar({setterLogout}){
             <CardSidebar
                 titulo="Setores"
                 img={Setores}
-                path="placas"
+                path="setores"
                 setter={setShowSidebar}
             />
 
@@ -71,6 +74,12 @@ export default function Sidebar({setterLogout}){
             > 
                 <img src={Logout}/>
                 
+            </button>
+
+            <button id="btnSidebar"
+                onClick={() => setShowSidebar(ant => !ant)}
+            >
+                <img src={showSidebar ? setaEsquerda : setaDireita} alt="Seta para fechar sidebar"/>
             </button>
             
             

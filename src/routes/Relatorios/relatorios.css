@@ -14,7 +14,15 @@
 #btnAddColecao{
     margin-top: 45px;
     padding: 8px 14px;
-    background-color: black;
+    background-color: rgba(78, 78, 78, 0);
     color: white;
     font-weight: bold;
+    border: 1px solid white;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+#btnAddColecao:hover{
+    background-color: var(--cor-principal);
+
 }

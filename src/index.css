@@ -5,7 +5,7 @@
 }
 :root {
   --larguraEditarRelatorio: 210px;
-  --cor-principal: #3498db;
+  --cor-principal:rgb(255, 119, 0);
 }
 html{
   height: 100%;

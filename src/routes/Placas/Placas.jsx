@@ -8,14 +8,12 @@ export default function Placas(){
     const { buscaPlacas, atualizaPlacas } = usePlacas();
     const [arrayPlacas, setArrayPlacas] = useState([]);
 
-
     function alteraValue(event, id, campo){
         let value = event.target.value;
         if(campo == "valor"){
             value = (value.replace(",","."));
         }
         
-
         const novoArray = arrayPlacas.map((item) => {
             if(item.id == id){
                 return(
@@ -39,9 +37,13 @@ export default function Placas(){
     }
 
     function addPlaca(){
-        const id = arrayPlacas[arrayPlacas.length - 1].id + 1;
+        let id = 1;
 
-        const novoArray = [...arrayPlacas, {id: id, carro: "", placa: "", valorhoracontratante: "", valorhoramotorista: "", valorkm: ""}];
+        if(arrayPlacas.length != 0){
+            id = arrayPlacas[arrayPlacas.length - 1].id + 1;
+        }
+        
+        const novoArray = [...arrayPlacas, {id: id, carro: "", placa: "", valor_hora_motorista: "", valor_hora_viagem_motorista: ""}];
         setArrayPlacas(novoArray);
     }
 
@@ -95,32 +97,22 @@ export default function Placas(){
                             </div>
 
                             <div className="inputCards">
-                                <label className="labelInputCards">Valor hora / contratante</label>
-                                <input 
-                                    className="inputPlaca" 
-                                    type="text" 
-                                    value={item.valorhoracontratante}
-                                    onChange={(event) => alteraValue(event, item.id, "valorhoracontratante")}
-                                />
-                            </div>
-
-                            <div className="inputCards">
                                 <label className="labelInputCards">Valor hora / motorista</label>
                                 <input 
                                     className="inputPlaca" 
                                     type="text" 
-                                    value={item.valorhoramotorista}
-                                    onChange={(event) => alteraValue(event, item.id, "valorhoramotorista")}
+                                    value={item.valor_hora_motorista}
+                                    onChange={(event) => alteraValue(event, item.id, "valor_hora_motorista")}
                                 />
                             </div>
 
                             <div className="inputCards">
-                                <label className="labelInputCards">Valor km</label>
+                                <label className="labelInputCards">Valor hora viagem / motorista</label>
                                 <input 
                                     className="inputPlaca" 
                                     type="text" 
-                                    value={item.valorkm}
-                                    onChange={(event) => alteraValue(event, item.id, "valorkm")}
+                                    value={item.valor_hora_viagem_motorista}
+                                    onChange={(event) => alteraValue(event, item.id, "valor_hora_viagem_motorista")}
                                 />
                             </div>
                         </div>

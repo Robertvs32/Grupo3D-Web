@@ -13,3 +13,23 @@
     margin-bottom: 20px;
     padding-bottom: 12px;
 }
+#linkColecoes{
+    color: white;
+    text-decoration: none;
+    background-color: rgb(42, 42, 42);
+    box-shadow: 0 0 1px 1px white;
+    font-weight: bold;
+    padding: 5px 8px;
+    border-radius: 4px;
+    display: block;
+    width: 200px;
+    text-align: center;
+    transition: background-color 0.45s ease;
+}
+#linkColecoes:hover{
+    background-color: rgb(255, 115, 0);
+}
+#pdfViewer{
+    width: 100%;
+    margin-top: 10px;
+}

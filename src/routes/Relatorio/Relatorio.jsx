@@ -1,6 +1,6 @@
 import { useParams } from 'react-router'
 import './relatorio.css'
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import useRelatorio from '../../hooks/useRelatorio';
 import InputRelatorio from './Components/InputRelatorio/InputRelatorio';
 import Checkbox from './Components/Checkbox/Checkbox';
@@ -15,9 +15,15 @@ import DataInicio from './Components/DateTime/Date/DataInicio';
 import DataFim from './Components/DateTime/Date/DataFim';
 import HoraIni from './Components/DateTime/Time/HoraIni';
 import HoraFim from './Components/DateTime/Time/HoraFim';
+import Confirm from '../../Components/Confirm/Confirm';
+import Alert from '../../Components/Alert/Alert';
 
 
 export default function Relatorio(){
+
+    const [showConfirm, setShowConfirm] = useState(false);
+    const [showAlert, setShowAlert] = useState();
+    const [mensagemAtualiza, setMensagemAtualiza] = useState();
 
     const { id } = useParams();
     const { buscaRelatorio, relatorioGetters, relatorioSetters, atualizaDados } = useRelatorio(); //
@@ -224,16 +230,33 @@ export default function Relatorio(){
 
             <button
             id="btnEnviar"
-                onClick={async () => {
-                    const confirmar = window.confirm("Deseja atualizar?")
-                    if(confirmar){
-                        await atualizaDados(id);
-                    }
-                }  
+                onClick={() => {setShowConfirm(true)}  
             }
             >
                 Atualizar dados
             </button>
+
+            {showConfirm && (
+                <Confirm
+                    mensagem="Deseja atualizar?"
+                    actionConfirm={ async () => {
+                            const response = await atualizaDados(id);
+                            setShowConfirm(false);
+
+                            setMensagemAtualiza(response);
+                            setShowAlert(true);               
+                        }   
+                    }
+                    actionCancel={() => setShowConfirm(false)}
+                />
+            )}
+
+            {showAlert && (
+                <Alert
+                    mensagem={mensagemAtualiza}
+                    setter={setShowAlert}
+                />
+            )}
  
         </div>
     )

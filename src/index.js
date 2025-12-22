@@ -7,7 +7,9 @@ import Relatorios from './routes/Relatorios/Relatorios';
 import Relatorio from './routes/Relatorio/Relatorio';
 import Placas from './routes/Placas/Placas';
 import RelatorioContratante from './routes/relatoriospdf/RelatorioContratante/RelatorioContratante';
-import Atribuicoes from './routes/Atribuicoes/Atribuicoes'
+import Atribuicoes from './routes/Atribuicoes/Atribuicoes';
+import Setores from './routes/Setores/Setores';
+import Colecoes from './routes/Colecoes/Colecoes';
 
 const router = createBrowserRouter([
   {
@@ -31,7 +33,15 @@ const router = createBrowserRouter([
         element: <Atribuicoes/>
       },
       {
-        path: "relatoriocontratante/:id",
+        path: "setores",
+        element: <Setores/>
+      },
+      {
+        path: "colecoes",
+        element: <Colecoes/>
+      },
+      {
+        path: "relatoriocontratante",
         element: <RelatorioContratante/>
       }
     ]

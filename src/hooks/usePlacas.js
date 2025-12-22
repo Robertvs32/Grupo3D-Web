@@ -16,9 +16,8 @@ export default function usePlacas(){
         const placas = {
             placas: array.map((item) => {
                 return {...item, 
-                    valorhoracontratante: Number(item.valorhoracontratante),
-                    valorhoramotorista: Number(item.valorhoramotorista),
-                    valorkm: Number(item.valorkm)
+                    valor_hora_motorista: Number(item.valor_hora_motorista),
+                    valor_hora_viagem_motorista: Number(item.valor_hora_viagem_motorista),
                 }
             })
         }

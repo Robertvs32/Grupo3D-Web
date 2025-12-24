@@ -18,7 +18,7 @@ export default function useColecoes(){
     const buscaColecoes = async (filtro) => {
         try{
             const q = filtro != '' 
-                ? query(collection(db, 'colecoes'), where('nome', '>', filtro) ,where('nome', '<', proximoPrefixo(filtro)))
+                ? query(collection(db, 'colecoes'), where('nome', '>=', filtro) ,where('nome', '<', proximoPrefixo(filtro)))
                 : query(collection(db, 'colecoes'));
 
             const colecoes = await getDocs(q);

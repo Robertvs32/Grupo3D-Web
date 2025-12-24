@@ -89,11 +89,15 @@ export default function Colecoes(){
                         <div className="containerGerarRelatorio">
                             <button 
                                 className="btnGerarRelatorio" 
-                                onClick={() => navigate('/relatoriocontratante', {state: item.relatorios})}
                             >
                                 <img src={motoristaIcon} alt="" />
                             </button>
-                            <button className="btnGerarRelatorio"><img src={contratanteIcon} alt="" /></button>
+                            <button 
+                                className="btnGerarRelatorio"
+                                onClick={() => navigate('/relatoriocontratante', {state: item.relatorios})}
+                            >
+                                <img src={contratanteIcon} alt=""/>
+                            </button>
                         </div>
                     </div>
                 ))}
